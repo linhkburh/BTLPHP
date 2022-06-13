@@ -88,7 +88,7 @@
                             </div>
                             <nav class="navbar">
                                 <ul class="navbar_menu">
-                                    <li><a href="index.html">trang chủ</a></li>
+                                    <li><a href="index.php">trang chủ</a></li>
                                     <li><a href="#">gian hàng</a></li>
                                     <li><a href="#">khuyến mãi</a></li>
                                     <li><a href="#">liên hệ</a></li>
@@ -205,7 +205,7 @@
                             <ul class="footer_nav">
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">FAQs</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="contact.php">Contact us</a></li>
                             </ul>
                         </div>
                     </div>

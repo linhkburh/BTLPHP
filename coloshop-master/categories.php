@@ -87,7 +87,7 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="index.html">trang chủ</a></li>
+								<li><a href="index.php">trang chủ</a></li>
 								<li><a href="#">gian hàng</a></li>
 								<li><a href="#">khuyến mãi</a></li>
 								<li><a href="#">liên hệ</a></li>
@@ -96,7 +96,7 @@
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="cart.html">
+									<a href="cart.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
@@ -165,8 +165,8 @@
 
 				<div class="breadcrumbs d-flex flex-row align-items-center">
 					<ul>
-						<li><a href="index.html">Trang chủ</a></li>
-						<li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Đồ nam</a></li>
+						<li><a href="index.php">Trang chủ</a></li>
+						<li class="active"><a href="index.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Đồ nam</a></li>
 					</ul>
 				</div>
 
@@ -606,7 +606,7 @@
 						<ul class="footer_nav">
 							<li><a href="#">Blog</a></li>
 							<li><a href="#">FAQs</a></li>
-							<li><a href="contact.html">Contact us</a></li>
+							<li><a href="contact.php">Contact us</a></li>
 						</ul>
 					</div>
 				</div>
