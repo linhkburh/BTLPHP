@@ -172,8 +172,8 @@
                                     <th>Tên Sản phẩm</th>
                                     <th>Giá</th>
                                     <th style="width: 100px;">Số lượng</th>
-                                    <th>Tổng tiền</th>
-                                    <th></th>
+                                    <th style="width: 100px;">Tổng tiền</th>
+                                    <th style="width: 100px;"></th>
                                   </tr>
                                 </thead>
                                 <?php
@@ -191,12 +191,12 @@
                                   <td><?=$row['title']?></td>
                                   <td><?=$row['price']?></td>
                                   <td style="text-align: center;">
-                                        <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="width: 18px;">-</button></a>
+                                        <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">-</button></a>
                                         <?=$row['num']?>
-                                        <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="width: 18px;">+</button></a>
+                                        <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
                                   <td><?=$row['price']*$row['num']?></td>                    
                                   <td>
-                                    <button>Xóa</button>
+                                    <a href="cart_delete.php?id_pr=<?=$row['id_product']?>"><button style="width: 70px; background-color: #fe4c50cf;">Xóa</button></a>
                                   </td>
                                 </tr>
                               <?php    
@@ -204,7 +204,10 @@
                                 mysqli_close($con);
                               ?>
                             </table>
-                        </div>
+                        </div> 
+                       <div>
+                            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+                       </div>
                     </div>
                 </div>
             </div>
