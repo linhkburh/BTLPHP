@@ -185,7 +185,7 @@
                                     while($row = mysqli_fetch_assoc($rs)){
                                         $count++;
                                 ?>
-                                <tr>
+                                <tr style="text-align: center">
                                   <td><?=$count?></td>
                                   <td><img src="<?=$row['thumbnail']?>"></td>
                                   <td><?=$row['title']?></td>
