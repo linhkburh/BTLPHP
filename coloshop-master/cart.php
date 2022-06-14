@@ -178,7 +178,7 @@
                                 </thead>
                                 <?php
                                     include_once('ketnoi.php');
-                                    $sql = "SELECT  thumbnail, title, order_details.price, num FROM 
+                                    $sql = "SELECT  product.id_product, thumbnail, title, order_details.price, num FROM 
                                     product inner join order_details on product.id_product = order_details.id_product";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
@@ -190,16 +190,11 @@
                                   <td><img src="<?=$row['thumbnail']?>"></td>
                                   <td><?=$row['title']?></td>
                                   <td><?=$row['price']?></td>
-                                  <td style="text-align: center;"><button onclick="set_NumProduct_down()" style="width: 18px;">-</button>
-                                        <span id="num"><?=$row['num']?></span>
-                                        <button onclick="set_NumProduct('+')" style="width:18px;">+</button></td>
-                                  <td><?=$row['price']*$row['num']?></td>
-                                  <script type="text/javascript">
-                                    function set_NumProduct_down() {
-                                        var a = document.getElementById("num").value;
-                                        document.getElementById("num").innerHTML = eval("c-1");
-                                    }
-                                </script>
+                                  <td style="text-align: center;">
+                                        <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="width: 18px;">-</button></a>
+                                        <?=$row['num']?>
+                                        <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="width: 18px;">+</button></a>
+                                  <td><?=$row['price']*$row['num']?></td>                    
                                   <td>
                                     <button>Xóa</button>
                                   </td>
