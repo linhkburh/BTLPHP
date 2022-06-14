@@ -204,7 +204,10 @@
                                 mysqli_close($con);
                               ?>
                             </table>
-                        </div>
+                        </div> 
+                       <div>
+                            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+                       </div>
                     </div>
                 </div>
             </div>
