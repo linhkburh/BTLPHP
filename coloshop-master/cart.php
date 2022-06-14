@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Giỏ hàng CONCASHOP</title>
+    <title>CONCASHOP | Giỏ hàng </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -157,7 +157,7 @@
                 </ul>
             </div>
         </div>
-
+        
         <div class="container product_section_container">
             <div class="row">
                 <div class="col product_section clearfix">
@@ -171,7 +171,7 @@
                                     <th>Ảnh</th>
                                     <th>Tên Sản phẩm</th>
                                     <th>Giá</th>
-                                    <th>Số lượng</th>
+                                    <th style="width: 100px;">Số lượng</th>
                                     <th>Tổng tiền</th>
                                     <th></th>
                                   </tr>
@@ -190,8 +190,16 @@
                                   <td><img src="<?=$row['thumbnail']?>"></td>
                                   <td><?=$row['title']?></td>
                                   <td><?=$row['price']?></td>
-                                  <td><?=$row['num']?></td>
+                                  <td style="text-align: center;"><button onclick="set_NumProduct_down()" style="width: 18px;">-</button>
+                                        <span id="num"><?=$row['num']?></span>
+                                        <button onclick="set_NumProduct('+')" style="width:18px;">+</button></td>
                                   <td><?=$row['price']*$row['num']?></td>
+                                  <script type="text/javascript">
+                                    function set_NumProduct_down() {
+                                        var a = document.getElementById("num").value;
+                                        document.getElementById("num").innerHTML = eval("c-1");
+                                    }
+                                </script>
                                   <td>
                                     <button>Xóa</button>
                                   </td>
