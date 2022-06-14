@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Colo Shop Categories</title>
+    <title> Shop con cá bán sextoy </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -19,8 +19,8 @@
 
 <body>
     <!-- 
-	104 cart 
-	
+    104 cart 
+    
 -->
     <div class="super_container">
 
@@ -44,27 +44,27 @@
 
                                     <li class="currency">
                                         <a href="#">
-										VNĐ
-										<i class="fa fa-angle-down"></i>
-									</a>
+                                        VNĐ
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
                                         <ul class="currency_selection">
                                             <li><a href="#">Khác</a></li>
                                         </ul>
                                     </li>
                                     <li class="language">
                                         <a href="#">
-										Vietnamese
-										<i class="fa fa-angle-down"></i>
-									</a>
+                                        Vietnamese
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
                                         <ul class="language_selection">
                                             <li><a href="#">English</a></li>
                                         </ul>
                                     </li>
                                     <li class="account">
                                         <a href="#">
-										Tài Khoản
-										<i class="fa fa-angle-down"></i>
-									</a>
+                                        Tài Khoản
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
                                         <ul class="account_selection">
                                             <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
                                             <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng kí</a></li>
@@ -124,27 +124,27 @@
                 <ul class="menu_top_nav">
                     <li class="menu_item has-children">
                         <a href="#">
-						VNĐ
-						<i class="fa fa-angle-down"></i>
-					</a>
+                        VNĐ
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                         <ul class="menu_selection">
                             <li><a href="#">Khác</a></li>
                         </ul>
                     </li>
                     <li class="menu_item has-children">
                         <a href="#">
-						Vietnamese
-						<i class="fa fa-angle-down"></i>
-					</a>
+                        Vietnamese
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                         <ul class="menu_selection">
                             <li><a href="#">English</a></li>
                         </ul>
                     </li>
                     <li class="menu_item has-children">
                         <a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
+                        My Account
+                        <i class="fa fa-angle-down"></i>
+                    </a>
                         <ul class="menu_selection">
                             <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
                             <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng kí</a></li>
@@ -163,9 +163,46 @@
                 <div class="col product_section clearfix">
                     <!-- Main Content -->
                     <div class="main_content">
-
-                        <h1>123456</h1>
-
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th>STT</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng tiền</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <?php
+                                    include_once('ketnoi.php');
+                                    $sql = "SELECT  thumbnail, title, order_details.price, num FROM 
+                                    product inner join order_details on product.id_product = order_details.id_product";
+                                    $rs = mysqli_query($con,$sql);
+                                    $count = 0;
+                                    while($row = mysqli_fetch_assoc($rs)){
+                                        $count++;
+                                ?>
+                                <tr>
+                                  <td><?=$count?></td>
+                                  <td><img src="<?=$row['thumbnail']?>"></td>
+                                  <td><?=$row['thumbnail']?></td>
+                                  <td><?=$row['title']?></td>
+                                  <td><?=$row['price']?></td>
+                                  <td><?=$row['num']?></td>
+                                  <td><?=$row['price']*$row['num']?></td>
+                                  <td>
+                                    <button>Xóa</button>
+                                  </td>
+                                </tr>
+                              <?php    
+                                }
+                                mysqli_close($con);
+                              ?>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,7 +242,7 @@
                             <ul class="footer_nav">
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">FAQs</a></li>
-                                <li><a href="contact.php">Contact us</a></li>
+                                <li><a href="contact.php">Liên lạc với chúng tôi</a></li>
                             </ul>
                         </div>
                     </div>
