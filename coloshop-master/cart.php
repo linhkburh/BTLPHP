@@ -178,11 +178,11 @@
                                 </thead>
                                 <?php
                                     include_once('ketnoi.php');
-                                    $sql = "SELECT  product.id_product, thumbnail, title, order_details.price, num FROM 
+                                    $sql = "SELECT  product.id_product, thumbnail, title, order_details.price, num,total_money FROM 
                                     product inner join order_details on product.id_product = order_details.id_product";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
-                                    while($row = mysqli_fetch_assoc($rs)){
+                                    while($row = mysqli_fetch_assoc($rs)){ 
                                         $count++;
                                 ?>
                                 <tr style="text-align: center">
@@ -194,7 +194,7 @@
                                         <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">-</button></a>
                                         <?=$row['num']?>
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
-                                  <td><?=$row['price']*$row['num']?></td>                    
+                                  <td><?=$row['total_money']?></td>                    
                                   <td>
                                     <a href="cart_delete.php?id_pr=<?=$row['id_product']?>"><button style="width: 70px; background-color: #fe4c50cf;">Xóa</button></a>
                                   </td>
@@ -205,14 +205,14 @@
                               ?>
                             </table>
                         </div> 
-                       <div>
-                            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
-                       </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
-
+        <div style="margin-left: 64%;">
+            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+        </div>
 
 
         <!-- Newsletter -->
