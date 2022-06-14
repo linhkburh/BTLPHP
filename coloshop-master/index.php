@@ -84,7 +84,7 @@
 						<nav class="navbar">
 							<ul class="navbar_menu">
 								<li><a href="#">trang chủ</a></li>
-								<li><a href="#">gian hàng</a></li>
+								<li><a href="categories.php">gian hàng</a></li>
 								<li><a href="#">khuyến mãi</a></li>
 								<li><a href="#">liên hệ</a></li>
 							</ul>
@@ -143,7 +143,7 @@
 					</ul>
 				</li>
 				<li class="menu_item"><a href="#">Trang chủ</a></li>
-				<li class="menu_item"><a href="#">Gian hàng</a></li>
+				<li class="menu_item"><a href="categories.php">Gian hàng</a></li>
 				<li class="menu_item"><a href="#">Khuyến mãi</a></li>
 				<li class="menu_item"><a href="#">Liên hệ</a></li>
 			</ul>
@@ -159,7 +159,7 @@
 					<div class="main_slider_content">
 						<h6>Bộ sưu tập Xuân / Hè 2022</h6>
 						<h1>Giảm giá tới 30% cho hàng mới về</h1>
-						<div class="red_button shop_now_button"><a href="#">Mua ngay</a></div>
+						<div class="red_button shop_now_button"><a href="#newproduct">Mua ngay</a></div>
 					</div>
 				</div>
 			</div>
@@ -187,7 +187,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_3.jpg)">
-						<div class="banner_category">
+						<div class="banner_category" id="newproduct">
 							<a href="categories.php">đồ nam</a>
 						</div>
 					</div>
@@ -222,171 +222,103 @@
 			<div class="row">
 				<div class="col">
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-
-						<!-- Product 1 -->
-
-						<div class="product-item men">
-							<div class="product discount product_filter">
-								<div class="product_image">
-									<img src="images/product_1.png" alt="">
-								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-20%</span></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-									<div class="product_price">$520.00<span>$590.00</span></div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 2 -->
-
-						<div class="product-item women">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_2.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>mới</span></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
-									<div class="product_price">$610.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 3 -->
-
-						<div class="product-item women">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_3.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Blue Yeti USB Microphone Blackout Edition</a></h6>
-									<div class="product_price">$120.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 4 -->
-
-						<div class="product-item accessories">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_4.png" alt="">
-								</div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
-									<div class="product_price">$410.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 5 -->
-
-						<div class="product-item women men">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_5.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Pryma Headphones, Rose Gold & Grey</a></h6>
-									<div class="product_price">$180.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 6 -->
-
-						<div class="product-item accessories">
-							<div class="product discount product_filter">
-								<div class="product_image">
-									<img src="images/product_6.png" alt="">
-								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-									<div class="product_price">$520.00<span>$590.00</span></div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 7 -->
-
-						<div class="product-item women">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_7.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
-									<div class="product_price">$610.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 8 -->
-
-						<div class="product-item accessories">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_8.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Blue Yeti USB Microphone Blackout Edition</a></h6>
-									<div class="product_price">$120.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 9 -->
-
-						<div class="product-item men">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_9.png" alt="">
-								</div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
-									<div class="product_price">$410.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
-
-						<!-- Product 10 -->
-
-						<div class="product-item men">
-							<div class="product product_filter">
-								<div class="product_image">
-									<img src="images/product_10.png" alt="">
-								</div>
-								<div class="favorite"></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.php">Pryma Headphones, Rose Gold & Grey</a></h6>
-									<div class="product_price">$180.00</div>
-								</div>
-							</div>
-							<div class="red_button add_to_cart_button"><a href="#">thêm vào giỏ hàng</a></div>
-						</div>
+									<?php
+										include_once "ketnoi.php";
+										$date = date("Y-m-d");
+										$sql1 = "Select * From product where id_category ='3' AND created_at = '$date'";
+										$rs1 = mysqli_query($con,$sql1);
+										while($row1 = mysqli_fetch_assoc($rs1)){
+									?>
+									<!-- Product nam-->
+									<div class="product-item men">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row1['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row1['id_product']?>"><?=$row1['title']?></a></h6>
+												<div class="product_price"><?=$row1['price']?><span><?=$row1['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row1['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product nu-->
+									<?php
+										include_once "ketnoi.php";
+										$sql2 = "Select * From product where id_category ='1' AND created_at = '$date'";
+										$rs2 = mysqli_query($con,$sql2);
+										while($row2 = mysqli_fetch_assoc($rs2)){
+									?>
+									<div class="product-item women">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row2['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row2['id_product']?>"><?=$row2['title']?></a></h6>
+												<div class="product_price"><?=$row2['price']?><span><?=$row2['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row2['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product phukien-->
+									<?php
+										include_once "ketnoi.php";
+										$sql3 = "Select * From product where id_category ='2' AND created_at = '$date'";
+										$rs3 = mysqli_query($con,$sql3);
+										while($row3 = mysqli_fetch_assoc($rs3)){
+									?>
+									<div class="product-item accessories">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row3['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row3['id_product']?>"><?=$row3['title']?></a></h6>
+												<div class="product_price"><?=$row3['price']?><span><?=$row3['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row3['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product ca2-->
+									<?php
+										include_once "ketnoi.php";
+										$sql4 = "Select * From product where id_category ='4' AND created_at = '$date'";
+										$rs4 = mysqli_query($con,$sql4);
+										while($row4 = mysqli_fetch_assoc($rs4)){
+									?>
+									<div class="product-item women men">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row4['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row4['id_product']?>"><?=$row4['title']?></a></h6>
+												<div class="product_price"><?=$row4['price']?><span><?=$row4['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row4['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
 					</div>
 				</div>
 			</div>

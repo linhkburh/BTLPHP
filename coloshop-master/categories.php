@@ -173,7 +173,7 @@
 				<div class="breadcrumbs d-flex flex-row align-items-center">
 					<ul>
 						<li><a href="index.php">Trang chủ</a></li>
-						<li class="active"><a href="index.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Đồ nam</a></li>
+						<li class="active"><a href="index.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Categories</a></li>
 					</ul>
 				</div>
 
@@ -185,11 +185,10 @@
 							<h5>Danh mục sản phẩm</h5>
 						</div>
 						<ul class="sidebar_categories">
-							<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Nam giới</a></li>
+							<!-- <li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Nam giới</a></li> -->
+							<li><a href="#">Nam giới</a></li>
 							<li><a href="#">Nữ giới</a></li>
 							<li><a href="#">Phụ kiện</a></li>
-							<li><a href="#">Hàng mới</a></li>
-							<li><a href="#">Bộ sưu tập</a></li>
 						</ul>
 					</div>
 
@@ -296,27 +295,98 @@
 								<!-- Product Grid -->
 
 								<div class="product-grid">
-
-									<!-- Product  -->
 									<?php
 										include_once "ketnoi.php";
-										$sql = "Select * From product";
-										$rs = mysqli_query($con,$sql);
-										while($row = mysqli_fetch_assoc($rs)){
+										$sql1 = "Select * From product where id_category ='3'";
+										$rs1 = mysqli_query($con,$sql1);
+										while($row1 = mysqli_fetch_assoc($rs1)){
 									?>
+									<!-- Product nam-->
 									<div class="product-item men">
 										<div class="product discount product_filter">
 											<div class="product_image">
-												<img src="<?=$row['thumbnail']?>" alt="">
+												<img src="<?=$row1['thumbnail']?>" alt="">
 											</div>
 											<div class="favorite favorite_left"></div>
 											<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div> -->
 											<div class="product_info">
-												<h6 class="product_name"><a href="single.php?id=<?=$row['id_product']?>"><?=$row['title']?></a></h6>
-												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
+												<h6 class="product_name"><a href="single.php?id=<?=$row1['id_product']?>"><?=$row1['title']?></a></h6>
+												<div class="product_price"><?=$row1['price']?><span><?=$row1['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row1['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product nu-->
+									<?php
+										include_once "ketnoi.php";
+										$sql2 = "Select * From product where id_category ='1'";
+										$rs2 = mysqli_query($con,$sql2);
+										while($row2 = mysqli_fetch_assoc($rs2)){
+									?>
+									<div class="product-item women">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row2['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div> -->
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row2['id_product']?>"><?=$row2['title']?></a></h6>
+												<div class="product_price"><?=$row2['price']?><span><?=$row2['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row2['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product phukien-->
+									<?php
+										include_once "ketnoi.php";
+										$sql3 = "Select * From product where id_category ='2'";
+										$rs3 = mysqli_query($con,$sql3);
+										while($row3 = mysqli_fetch_assoc($rs3)){
+									?>
+									<div class="product-item accessories">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row3['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div> -->
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row3['id_product']?>"><?=$row3['title']?></a></h6>
+												<div class="product_price"><?=$row3['price']?><span><?=$row3['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row3['id_product']?>">Thêm vào giỏ hàng</a></div>
+									</div>
+									<?php
+										}
+									?>
+									<!-- Product ca2-->
+									<?php
+										include_once "ketnoi.php";
+										$sql4 = "Select * From product where id_category ='4'";
+										$rs4 = mysqli_query($con,$sql4);
+										while($row4 = mysqli_fetch_assoc($rs4)){
+									?>
+									<div class="product-item women men">
+										<div class="product discount product_filter">
+											<div class="product_image">
+												<img src="<?=$row4['thumbnail']?>" alt="">
+											</div>
+											<div class="favorite favorite_left"></div>
+											<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div> -->
+											<div class="product_info">
+												<h6 class="product_name"><a href="single.php?id=<?=$row4['id_product']?>"><?=$row4['title']?></a></h6>
+												<div class="product_price"><?=$row4['price']?><span><?=$row4['discount']?></span></div>
+											</div>
+										</div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row4['id_product']?>">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
