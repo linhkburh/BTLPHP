@@ -89,7 +89,7 @@
                             <nav class="navbar">
                                 <ul class="navbar_menu">
                                     <li><a href="index.php">trang chủ</a></li>
-                                    <li><a href="#">gian hàng</a></li>
+                                    <li><a href="categories.php">gian hàng</a></li>
                                     <li><a href="#">khuyến mãi</a></li>
                                     <li><a href="#">liên hệ</a></li>
                                 </ul>
@@ -151,7 +151,7 @@
                         </ul>
                     </li>
                     <li class="menu_item"><a href="#">Trang chủ</a></li>
-                    <li class="menu_item"><a href="#">Gian hàng</a></li>
+                    <li class="menu_item"><a href="categories.php">Gian hàng</a></li>
                     <li class="menu_item"><a href="#">Khuyến mãi</a></li>
                     <li class="menu_item"><a href="#">Liên hệ</a></li>
                 </ul>
