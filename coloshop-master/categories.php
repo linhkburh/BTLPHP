@@ -309,7 +309,7 @@
 												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="#"><button type="button">Thêm vào giỏ hàng</button></a></div>
+										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row['id_product']?>">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
