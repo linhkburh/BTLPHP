@@ -196,7 +196,7 @@
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="width: 18px;">+</button></a>
                                   <td><?=$row['price']*$row['num']?></td>                    
                                   <td>
-                                    <button>Xóa</button>
+                                    <a href="cart_delete.php?id_pr=<?=$row['id_product']?>"><button>Xóa</button></a>
                                   </td>
                                 </tr>
                               <?php    
