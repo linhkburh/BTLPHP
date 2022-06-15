@@ -13,14 +13,14 @@
     include_once "ketnoi.php";
     $uname = $_POST['email1'];
     $upass = $_POST['password'];
-    $sql = "Select email, password, id_role From user Where email = '$uname' AND password = '$upass'";
+    $sql = "Select email, password, id_role From user";
     $rs = mysqli_query($con,$sql);
     while($r = mysqli_fetch_assoc($rs)){
-        if($r['id_role'] == '2'){
+        if($r['id_role'] == '2' && $r['email'] == $uname && $r['password'] == $upass){
             header("Location: index.php");
-        }else if($r['id_role'] == '1'){
+        }else if($r['id_role'] == '1' && $r['email'] == $uname && $r['password'] == $upass){
             header("Location: admin.php");
-        }else if($r == null){
+        }else{
             header("Location: index.php");
         }
     }
