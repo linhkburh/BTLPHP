@@ -18,9 +18,7 @@
 </head>
 
 <body>
-<?php
-	$temp = $_GET['key_cart'];
-?>
+
     <div class="super_container">
 
         <!-- Header -->
@@ -177,12 +175,21 @@
                                 </thead>
                                 <?php
                                     include_once('ketnoi.php');
-                                    $sql = "SELECT  product.id_product, thumbnail, title, order_details.price, num,total_money FROM 
-                                    product inner join order_details on product.id_product = order_details.id_product";
+                                    $Email_User = $_GET['key_cart'];
+                                    $sql = "Select id_orders from orders where email = '$Email_User'";
+                                    $rs = mysqli_query($con,$sql);
+                                    while($row = mysqli_fetch_assoc($rs)){
+                                    $id_Oder = $row['id_orders'];
+                                     }
+                                    $sql = "SELECT product.id_product, thumbnail, title, order_details.price, num,total_money FROM 
+                                    product inner join order_details on product.id_product = order_details.id_product
+                                    where order_details.id_orders = $id_Oder";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
+                                    $TongTien;
                                     while($row = mysqli_fetch_assoc($rs)){ 
                                         $count++;
+                                       
                                 ?>
                                 <tr style="text-align: center">
                                   <td><?=$count?></td>
@@ -210,7 +217,7 @@
             </div>
         </div>
         <div style="margin-left: 64%;">
-            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+            <a href="ThanhToan.php" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
         </div>
 
 
