@@ -16,7 +16,9 @@
 </head>
 
 <body>
-
+<?php
+	$temp = $_POST['key_index'];
+?>
 <div class="super_container">
 
 	<!-- Header -->
@@ -39,7 +41,7 @@
 
 								<li class="currency">
 									<a href="#">
-										VNĐ
+									VNĐ
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="currency_selection">
@@ -92,7 +94,7 @@
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="cart.php">
+									<a href="cart.php?key_cart=<?=$temp?>">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
@@ -225,7 +227,7 @@
 									<?php
 										include_once "ketnoi.php";
 										$date = date("Y-m-d");
-										$sql1 = "Select * From product where id_category ='3' AND created_at = '$date'";
+										$sql1 = "Select * From product where id_category ='3' ";
 										$rs1 = mysqli_query($con,$sql1);
 										while($row1 = mysqli_fetch_assoc($rs1)){
 									?>
@@ -238,7 +240,7 @@
 											<div class="favorite favorite_left"></div>
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
 											<div class="product_info">
-												<h6 class="product_name"><a href="single.php?id=<?=$row1['id_product']?>"><?=$row1['title']?></a></h6>
+												<h6 class="product_name"><a href="single.php?id=<?=$row1['id_product']?>&key_single=<?=$temp?>"><?=$row1['title']?></a></h6>
 												<div class="product_price"><?=$row1['price']?><span><?=$row1['discount']?></span></div>
 											</div>
 										</div>

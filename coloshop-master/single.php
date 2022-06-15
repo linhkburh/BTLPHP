@@ -22,11 +22,13 @@
 		document.getElementById('sl').value = document.getElementById('quantity_value').innerText;
         f.submit();
     }
+		
     </script>
 </head>
-
 <body>
-
+<?php
+			$temp = $_GET['key_single'];
+?>
 <div class="super_container">
 
 	<!-- Header -->

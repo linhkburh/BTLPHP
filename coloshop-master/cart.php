@@ -18,10 +18,9 @@
 </head>
 
 <body>
-    <!-- 
-    104 cart 
-    
--->
+<?php
+	$temp = $_GET['key_cart'];
+?>
     <div class="super_container">
 
         <!-- Header -->
