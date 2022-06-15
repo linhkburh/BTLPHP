@@ -186,8 +186,10 @@
                                     where order_details.id_orders = $id_Oder";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
+                                    $TongTien;
                                     while($row = mysqli_fetch_assoc($rs)){ 
                                         $count++;
+                                       
                                 ?>
                                 <tr style="text-align: center">
                                   <td><?=$count?></td>
@@ -215,7 +217,7 @@
             </div>
         </div>
         <div style="margin-left: 64%;">
-            <a href="ThanhToan.html" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+            <a href="ThanhToan.php" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
         </div>
 
 
