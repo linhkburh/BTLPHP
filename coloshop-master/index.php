@@ -18,7 +18,7 @@
 	$temp = "";
 	$temp = $_POST['key_index'];
 	if($temp != null){
-		$giohang = 'cart.php?key_cart=<?=$temp?>';
+		$giohang = "cart.php?key_cart=";
 		?>
 		<style>
 			.account{
@@ -85,7 +85,7 @@
 
 								<li class="currency">
 									<a href="#">
-									VNĐ
+									<?=$temp?>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="currency_selection">
@@ -145,7 +145,7 @@
 								</li>
 								</li>
 								<li class="checkout">
-									<a href="<?=$giohang?>">
+									<a href="<?=$giohang?><?=$temp?>">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
