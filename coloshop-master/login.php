@@ -42,7 +42,7 @@
         }
         while($r2 = mysqli_fetch_assoc($rs2)){
             if($r2['email'] == $uname && $r2['password'] == $upass ){
-                header("Location: Admin/TEMPLATEAdmin.html");
+                header("Location: Admin/Admin.html");
             }else{
                 ?><p style="margin-left: 40%; margin-top: 3%; color: red">
                 <?php
