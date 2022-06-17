@@ -14,9 +14,11 @@
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <?php
+	$giohang = "";
 	$temp = "";
 	$temp = $_POST['key_index'];
 	if($temp != null){
+		$giohang = 'cart.php?key_cart=<?=$temp?>';
 		?>
 		<style>
 			.account{
@@ -49,6 +51,7 @@
 		</style>
 		<?php
 	}else{
+		$giohang = 'login.html';
 		?>
 		<style>
 			.account1{
@@ -142,7 +145,7 @@
 								</li>
 								</li>
 								<li class="checkout">
-									<a href="cart.php?key_cart=<?=$temp?>">
+									<a href="<?=$giohang?>">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
@@ -224,21 +227,21 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_1.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">đồ nữ</a>
+							<a href="categories.php?send_cate=<?=$temp?>">đồ nữ</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_2.jpg)">
 						<div class="banner_category">
-							<a href="categories.php">phụ kiện</a>
+							<a href="categories.php?send_cate=<?=$temp?>">phụ kiện</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_3.jpg)">
 						<div class="banner_category" id="newproduct">
-							<a href="categories.php">đồ nam</a>
+							<a href="categories.php?send_cate=<?=$temp?>">đồ nam</a>
 						</div>
 					</div>
 				</div>

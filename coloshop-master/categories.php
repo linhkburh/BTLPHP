@@ -14,8 +14,16 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
-
-
+<?php
+	$giohang = "";
+	$temp = "";
+	$temp = $_GET['send_cate'];
+	if($temp != null){
+		$giohang = 'Addcart2.php?id=<?=$row[\'id_product\']?>';
+	}else{
+		$giohang = 'login.html';
+	}
+?>
 </head>
 
 <body>
@@ -311,7 +319,7 @@
 												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="<?=$giohang?>">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}

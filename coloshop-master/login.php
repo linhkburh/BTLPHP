@@ -18,8 +18,12 @@
     $uname = $_POST['email1'];
     $upass = $_POST['password'];
     $sql = "Select email, password, id_role From user";
+    $sql2 = "Select email, password, id_role From user where id_role = '1'";
     $rs = mysqli_query($con,$sql);
+    $rs2 = mysqli_query($con,$sql2);
+    $r2 = mysqli_fetch_assoc($rs2);
     while($r = mysqli_fetch_assoc($rs)){
+        //echo $r['email'].$r['password'].$r['id_role'];
         if($uname == "" || $upass == ""){
             ?><p style="margin-left: 36%; margin-top: 3%; color: red">
             <?php
@@ -28,14 +32,8 @@
             <?php
             require_once'login.html';
             break;
-        }else if($uname != $r['email'] || $upass != $r['password']){
-            ?><p style="margin-left: 40%; margin-top: 3%; color: red">
-            <?php
-            echo"Sai tên đăng nhập hoặc mật khẩu";
-            ?></p>
-            <?php
-            require_once'login.html';
-            break;
+        }else if($r2['email'] == $uname && $r2['password'] == $upass){
+            header("Location: Admin/TEMPLATEAdmin.html");
         }else if($r['id_role'] == '2' && $r['email'] == $uname && $r['password'] == $upass){
             //header("Location: index.php");
             ?>
@@ -44,8 +42,14 @@
             </form>
             <script type="text/javascript">    submit();      </script>
             <?php
-        }else if($r['id_role'] == '1' && $r['email'] == $uname && $r['password'] == $upass){
-            header("Location: admin.php");
+        }else if($uname != $r['email'] || $upass != $r['password']){
+            ?><p style="margin-left: 40%; margin-top: 3%; color: red">
+            <?php
+            echo"Sai tên đăng nhập hoặc mật khẩu";
+            ?></p>
+            <?php
+            require_once'login.html';
+            break;
         }
     }
     mysqli_close($con);
