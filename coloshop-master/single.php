@@ -22,8 +22,57 @@
 		document.getElementById('sl').value = document.getElementById('quantity_value').innerText;
         f.submit();
     }
-		
     </script>
+	<?php
+	$giohang = "";
+	$Addgiohang = "";
+	if(isset($_COOKIE['email'])){
+		$giohang = "cart.php";
+		$Addgiohang = "Addcart.php";
+		$temp = $_COOKIE['email'];
+		?>
+		<style>
+			.account{
+				display: none;
+			}
+			.account1{
+				display: inline-block;
+				position: relative;
+				min-width: 50px;
+				padding-left: 20px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.account1 > a
+			{
+				display: block;
+				color: #b5aec4;
+				font-weight: 400;
+				height: 50px;
+				line-height: 50px;
+				font-size: 13px;
+				width: 200px;
+			}
+			.account1:hover .account_selection
+			{
+				visibility: visible;
+				opacity: 1;
+				top: 100%;
+			}
+		</style>
+		<?php
+	}else{
+		$giohang = "login.html";
+		$Addgiohang = "login.html";
+		?>
+		<style>
+			.account1{
+				display: none;
+			}
+		</style>
+		<?php
+	}
+?>
 </head>
 <body>
 <?php
@@ -104,7 +153,13 @@
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="account1">
+									<a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+									<ul class="account_selection" style="width: 250px;">
+										<li><a href="#"><?=$temp?></a></li><br>
+										<li><a href="login.html" style="width: 100px">Đăng Xuất</a></li>
+									</ul>
+								</li>
 								<li class="checkout">
 									<a href="cart.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -252,7 +307,7 @@
 		</div>
 				
 	</div>
-	<form action="Addcart.php" method="post" id="add">
+	<form action="<?=$Addgiohang?>" method="post" id="add">
 		<input type="hidden" id="id" name="id">
 		<input type="hidden" id="sl" name="sl">
   	</form>

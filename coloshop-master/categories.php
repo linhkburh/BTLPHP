@@ -16,8 +16,10 @@
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
 <?php
 	$giohang = "";
+	$Addgiohang = "";
 	if(isset($_COOKIE['email'])){
 		$giohang = "cart.php";
+		$Addgiohang = "Addcart2.php";
 		$temp = $_COOKIE['email'];
 		?>
 		<style>
@@ -52,6 +54,7 @@
 		<?php
 	}else{
 		$giohang = "login.html";
+		$Addgiohang = "login.html";
 		?>
 		<style>
 			.account1{
@@ -362,7 +365,7 @@
 												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="<?=$giohang?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="<?=$Addgiohang?>">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}

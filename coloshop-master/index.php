@@ -18,7 +18,6 @@
 	$tempcart = "";	
 	if(isset($_COOKIE['email']) /* && $_COOKIE['email'] != $_POST['key_index'] */){
 		$temp = $_COOKIE['email'];
-		$tempcart = $_COOKIE['email'];
 		$giohang = "cart.php";
 		?>
 		<style>
@@ -182,7 +181,7 @@
 								</li>
 								</li>
 								<li class="checkout">
-									<a href="<?=$giohang?><?=$tempcart?>">
+									<a href="<?=$giohang?>"
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
