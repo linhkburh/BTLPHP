@@ -43,62 +43,10 @@
     </style>
 </head>
 <div class="super_container">
-
   <!-- Header -->
-
   <header   class="header trans_300">
-
     <!-- Top Navigation -->
-
-    <div class="top_nav">
-      <div style="margin-left: 250px;" class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="top_nav_left">Giao hàng miễn phí cho tất cả các đơn hàng trên 100.000VNĐ</div>
-          </div>
-          <div class="col-md-6 text-right">
-            <div class="top_nav_right">
-              <ul class="top_nav_menu">
-
-                <!-- Currency / Language / My Account -->
-
-                <li class="currency">
-                  <a href="#">
-                    VNĐ
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="currency_selection">
-                    <li><a href="#">Khác</a></li>                   
-                  </ul>
-                </li>
-                <li class="language">
-                  <a href="#">
-                    Vietnamese
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="language_selection">
-                    <li><a href="#">English</a></li>
-                  </ul>
-                </li>
-                <li class="account">
-                  <a href="#">
-                    Tài khoản
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="account_selection">
-                    <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
-                    <li><a href="Register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Main Navigation -->
-
     <div  class="main_nav_container">
       <div style="margin-left: 240px;" class="container">
         <div class="row">
