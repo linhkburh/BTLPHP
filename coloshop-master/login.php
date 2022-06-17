@@ -15,41 +15,42 @@
 <body>
 <?php
     include_once "ketnoi.php";
-    $uname = $_POST['email1'];
+    $uname = $_POST['emailuser'];
     $upass = $_POST['password'];
-    $sql = "Select email, password, id_role From user";
-    $sql2 = "Select email, password, id_role From user where id_role = '1'";
-    $rs = mysqli_query($con,$sql);
+    $sql1 = "Select email, password, id_role From user";
+    $sql2 = "Select email, password, id_role From admin";
+    $rs1 = mysqli_query($con,$sql1);
     $rs2 = mysqli_query($con,$sql2);
-    $r2 = mysqli_fetch_assoc($rs2);
-    while($r = mysqli_fetch_assoc($rs)){
-        //echo $r['email'].$r['password'].$r['id_role'];
-        if($uname == "" || $upass == ""){
-            ?><p style="margin-left: 36%; margin-top: 3%; color: red">
-            <?php
-            echo"Tên đăng nhập hoặc mật khẩu không được để trống";
-            ?></p>
-            <?php
-            require_once'login.html';
-            break;
-        }else if($r2['email'] == $uname && $r2['password'] == $upass){
-            header("Location: Admin/TEMPLATEAdmin.html");
-        }else if($r['id_role'] == '2' && $r['email'] == $uname && $r['password'] == $upass){
-            //header("Location: index.php");
-            ?>
-            <form action="index.php" method="post" name="send_index">
-                <input type="hidden" id="key_index" name="key_index" value="<?=$uname?>">
-            </form>
-            <script type="text/javascript">    submit();      </script>
-            <?php
-        }else if($uname != $r['email'] || $upass != $r['password']){
-            ?><p style="margin-left: 40%; margin-top: 3%; color: red">
-            <?php
-            echo"Sai tên đăng nhập hoặc mật khẩu";
-            ?></p>
-            <?php
-            require_once'login.html';
-            break;
+    if($uname == "" || $upass == ""){
+        ?><p style="margin-left: 36%; margin-top: 3%; color: red">
+        <?php
+        echo"Tên đăng nhập hoặc mật khẩu không được để trống";
+        ?></p>
+        <?php
+        require_once'login.html';
+    }else{
+        while($r1 = mysqli_fetch_assoc($rs1)){
+            if($r1['email'] == $uname && $r1['password'] == $upass){
+                //header("Location: index.php");
+                ?>
+                <form action="index.php" method="post" name="send_index">
+                    <input type="hidden" id="key_index" name="key_index" value="<?=$uname?>">
+                </form>
+                <script type="text/javascript">    submit();      </script>
+                <?php
+            }
+        }
+        while($r2 = mysqli_fetch_assoc($rs2)){
+            if($r2['email'] == $uname && $r2['password'] == $upass ){
+                header("Location: Admin/TEMPLATEAdmin.html");
+            }else{
+                ?><p style="margin-left: 40%; margin-top: 3%; color: red">
+                <?php
+                echo"Sai tên đăng nhập hoặc mật khẩu";
+                ?></p>
+                <?php
+                require_once'login.html';
+            }
         }
     }
     mysqli_close($con);

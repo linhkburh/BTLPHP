@@ -15,9 +15,46 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <?php
 	$giohang = "";
-	$temp = "";
-	$temp = $_POST['key_index'];
-	if($temp != null){
+	$tempcart = "";	
+	if(isset($_COOKIE['email']) /* && $_COOKIE['email'] != $_POST['key_index'] */){
+		$temp = $_COOKIE['email'];
+		$tempcart = $_COOKIE['email'];
+		$giohang = "cart.php";
+		?>
+		<style>
+			.account{
+				display: none;
+			}
+			.account1{
+				display: inline-block;
+				position: relative;
+				min-width: 50px;
+				padding-left: 20px;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.account1 > a
+			{
+				display: block;
+				color: #b5aec4;
+				font-weight: 400;
+				height: 50px;
+				line-height: 50px;
+				font-size: 13px;
+				width: 200px;
+			}
+			.account1:hover .account_selection
+			{
+				visibility: visible;
+				opacity: 1;
+				top: 100%;
+			}
+		</style>
+		<?php
+	}else if(isset($_POST['key_index'])){
+		setcookie("email",$_POST['key_index'],time()+120,'/','','',true);
+		$temp = $_POST['key_index'];
+		$tempcart = $_POST['key_index'];
 		$giohang = "cart.php?key_cart=";
 		?>
 		<style>
@@ -51,7 +88,7 @@
 		</style>
 		<?php
 	}else{
-		$giohang = 'login.html';
+		$giohang = "login.html";
 		?>
 		<style>
 			.account1{
@@ -85,7 +122,7 @@
 
 								<li class="currency">
 									<a href="#">
-									<?=$temp?>
+									VNĐ
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="currency_selection">
@@ -145,7 +182,7 @@
 								</li>
 								</li>
 								<li class="checkout">
-									<a href="<?=$giohang?><?=$temp?>">
+									<a href="<?=$giohang?><?=$tempcart?>">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
@@ -227,21 +264,21 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_1.jpg)">
 						<div class="banner_category">
-							<a href="categories.php?send_cate=<?=$temp?>">đồ nữ</a>
+							<a href="categories.php">đồ nữ</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_2.jpg)">
 						<div class="banner_category">
-							<a href="categories.php?send_cate=<?=$temp?>">phụ kiện</a>
+							<a href="categories.php">phụ kiện</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(images/banner_3.jpg)">
 						<div class="banner_category" id="newproduct">
-							<a href="categories.php?send_cate=<?=$temp?>">đồ nam</a>
+							<a href="categories.php">đồ nam</a>
 						</div>
 					</div>
 				</div>
