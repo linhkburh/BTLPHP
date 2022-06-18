@@ -222,6 +222,12 @@
                         <div class="panel-heading">
                             Bảng danh mục sản phẩm
                         </div>
+                        <form action="nhapdata.php" method="post">
+                            <input type="hidden" id="action" name="action" value="themdanhmuc" require>
+                            <div>
+                                <button type="submit">Thêm</button>
+                            </div><br>
+                        </form>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -264,19 +270,7 @@
             </div>
                 
         </div>
-        <div class="container mt-3">
-            <h3>Thêm danh mục</h3>                    
-            <form action="add.php" method="post">
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">Tên danh mục</span>
-                    <input type="text" class="form-control" id="tendanhmuc" name="tendanhmuc">
-                </div>
-                <input type="hidden" id="action" name="action" value="themdanhmuc" require>
-                <div>
-                    <button type="submit">Thêm</button>
-                </div><br>
-            </form>
-        </div>
+        
     </div>
     
 </div>
