@@ -141,6 +141,11 @@
 <span>Tổng Tiền</span>
 <?php
   $toal_money = $_GET['total_money'];
+  $id_user = $_GET['id_user'];
+  include_once "ketnoi.php";
+  $sql = "UPDATE order_details set status = 1 where id_user = $id_user";
+  mysqli_query($con,$sql);
+  mysqli_close($con);
 
 ?>
 <strong><?=$toal_money?></strong>
