@@ -19,14 +19,14 @@
             $tempnum = $row2['num']+1;
             $tempprice = ($row2['num']+1)*$price;
             $sql = "UPDATE order_details
-            SET num = '$tempnum', total_money = '$tempprice'
+            SET num = '$tempnum'
             WHERE id_product = '$id' && id_user ='$id_user'";
             mysqli_query($con,$sql);
             mysqli_close($con);
         }
         else if($row2 == null){
-            $sql3 = "INSERT INTO order_details (id_user, id_product, price, num, total_money)
-            VALUES ('$id_user', '$id', '$price', '1','$price')";
+            $sql3 = "INSERT INTO order_details (id_user, id_product, price, num, status)
+            VALUES ('$id_user', '$id', '$price', '1',0)";
             mysqli_query($con,$sql3);
             mysqli_close($con);
         }
