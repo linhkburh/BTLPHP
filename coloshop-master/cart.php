@@ -224,7 +224,7 @@
                                 <?php
                                     include_once('ketnoi.php');
                                     $Email_User = $_COOKIE['email'];
-                                    
+
                                     $sql = "Select id_user from user where email = '".$Email_User."'";
                                     $rs = mysqli_query($con,$sql);
                                     while($row = mysqli_fetch_assoc($rs)){
@@ -233,7 +233,7 @@
 
                                     $sql = "SELECT product.id_product, thumbnail, title, order_details.price, num FROM 
                                     product inner join order_details on product.id_product = order_details.id_product
-                                    where order_details.id_user = '".$id_user."'";
+                                    where order_details.id_user = $id_user";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
                                     $TongTien;
