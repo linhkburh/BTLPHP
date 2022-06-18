@@ -236,10 +236,11 @@
                                     where order_details.id_user = $id_user";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
+                                    $TongTien = 0;
                                     while($row = mysqli_fetch_assoc($rs)){ 
                                         $count++;
-                                        $TongTien = $row['price']*$row['num'];
-                                       
+                                        $ThanhTien = $row['price']*$row['num'];
+                                        $TongTien = $TongTien + $ThanhTien;
                                 ?>
 
                                 <tr style="text-align: center">
@@ -251,7 +252,7 @@
                                         <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">-</button></a>
                                         <?=$row['num']?>
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
-                                  <td><?=$TongTien?></td>                    
+                                  <td><?=$ThanhTien?></td>                    
                                   <td>
                                     <button onclick="xoa(<?=$row['id_product']?>)" style="width: 70px; background-color: #fe4c50cf;">Xóa</button>
 
@@ -269,15 +270,20 @@
             </div>
         </div>
         <div style="margin-left: 64%;">
-            <a href="ThanhToan.php" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
+            <button class="btn btn-dark" onclick="thanhtoan(<?=$TongTien?>)">Thanh Toán</button>
         </div>
+
         <script type="text/javascript">
             function xoa(id){
               var cf = confirm("Bạn có thực sự muốn xóa sản phẩm này?");
               if(cf){
                 window.location= "cart_delete.php?id_pr="+id;
       }
+            
     }
+            function thanhtoan(total){
+                window.location = "thanhtoan.php?total_money="+total;
+            }
         </script>
 
         <!-- Newsletter -->
