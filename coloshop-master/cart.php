@@ -224,16 +224,14 @@
                                 <?php
                                     include_once('ketnoi.php');
                                     $Email_User = $_COOKIE['email'];
-
                                     $sql = "Select id_user from user where email = '".$Email_User."'";
                                     $rs = mysqli_query($con,$sql);
                                     while($row = mysqli_fetch_assoc($rs)){
                                     $id_user = $row['id_user'];
                                      }
-
                                     $sql = "SELECT product.id_product, thumbnail, title, order_details.price, order_details.num FROM 
                                     product inner join order_details on product.id_product = order_details.id_product
-                                    where order_details.id_user = $id_user";
+                                    where order_details.id_user = $id_user and status = 0";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
                                     $TongTien = 0;
@@ -270,7 +268,7 @@
             </div>
         </div>
         <div style="margin-left: 64%;">
-            <button class="btn btn-dark" onclick="thanhtoan(<?=$TongTien?>)">Thanh Toán</button>
+            <button class="btn btn-dark" onclick="thanhtoan(<?=$TongTien?>,<?=$id_user?>)">Thanh Toán</button>
         </div>
 
         <script type="text/javascript">
@@ -281,9 +279,10 @@
       }
             
     }
-            function thanhtoan(total){
-                
-                window.location = "thanhtoan.php?total_money="+total;
+            function thanhtoan(total,id_user){
+
+                window.location = "thanhtoan.php?total_money="+total+"&id_user="+id_user;
+
             }
         </script>
 
