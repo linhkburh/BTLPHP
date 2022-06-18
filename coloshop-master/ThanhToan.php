@@ -139,7 +139,10 @@
 <ul class="list-group mb-3">
 <li class="list-group-item d-flex justify-content-between">
 <span>Tổng Tiền</span>
-<strong>Liên Hệ</strong>
+<?php
+  $toal_money = $_POST['total_money'];
+?>
+<strong><?=$toal_money?></strong>
 </li>
 </ul>
 </div>
