@@ -140,7 +140,8 @@
 <li class="list-group-item d-flex justify-content-between">
 <span>Tổng Tiền</span>
 <?php
-  $toal_money = $_POST['total_money'];
+  $toal_money = $_GET['total_money'];
+
 ?>
 <strong><?=$toal_money?></strong>
 </li>
