@@ -253,6 +253,7 @@
                                         $count = 0;
                                         while($r = mysqli_fetch_assoc($rs)){
                                             $count ++;
+                    
                                     ?>
                                     <tr style="text-align: center;">
                                         <td><?=$count?></td>

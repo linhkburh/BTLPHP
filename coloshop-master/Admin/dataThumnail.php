@@ -222,6 +222,12 @@
                         <div class="panel-heading">
                             Bảng danh mục sản phẩm
                         </div>
+                        <form action="nhapdata.php" method="post">
+                            <input type="hidden" id="action" name="action" value="themanh" require>
+                            <div>
+                                <button type="submit">Thêm</button>
+                            </div><br>
+                        </form>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -245,7 +251,7 @@
                                         <td><?=$count?></td>
                                         <td><?=$r['id_gallery']?></td>
                                         <td><?=$r['id_product']?></td>
-                                        <td><?=$r['thumbnail']?></td>
+                                        <td><img src="C:\xampp\htdocs\GitHub\BTLPHP\coloshop-master\images\<?=$r['thumbnail']?>" width="100" height="100"></td>
                                         <td>
                                             <a href="#"><button type="button">Sửa</button></a>
                                             <a href="#"><button type="button">Xóa</button></a>

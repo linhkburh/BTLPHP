@@ -48,7 +48,7 @@
             if($r2['email'] == $uname && $r2['password'] == $upass ){
                 //header("Location: Admin/Admin.php");
                 ?>
-                <form action="Admin/Admin.php" method="post" name="send_Admin">
+                <form action="Admin.php" method="post" name="send_Admin">
                     <input type="hidden" id="key_admin" name="key_admin" value="<?=$uname?>">
                 </form>
                 <script type="text/javascript">    submit2();      </script>

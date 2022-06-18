@@ -33,18 +33,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <?php
-        $temp = "";
-        if(isset($_COOKIE['admin'])){
-            $temp = $_COOKIE['admin'];
+    <style>
+        .title{
+            text-align: center;
         }
-        if(isset($_POST['key_admin'])){
-            setcookie("admin",$_POST['key_admin'],time()+120,'/','','',true);
-            $temp = $_COOKIE['admin'];
-        }else if(!isset($_COOKIE['admin'])){
-            header("Location: /github/BTLPHP/coloshop-master/login.html");
-        }
-?>
+    </style>
 </head>
 <body>
 
@@ -94,7 +87,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>Hi! <?=$temp?><b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -102,7 +95,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="/github/BTLPHP/coloshop-master/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -223,104 +216,69 @@
             </div>
 
             <!-- ... Your content goes here ... -->
-            <?php
-                $code = $_POST['action'];
-                if($code == "themdanhmuc"){
-                    ?>
-                        <div class="container mt-3">
-                            <h3>Thêm danh mục</h3>                    
-                            <form action="add.php" method="post">
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Tên danh mục</span>
-                                    <input type="text" class="form-control" id="tendanhmuc" name="tendanhmuc">
-                                </div>
-                                <input type="hidden" id="action" name="action" value="themdanhmuc" require>
-                                <div>
-                                    <button type="submit">Thêm</button>
-                                </div><br>
-                            </form>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Bảng Người dùng
                         </div>
-                    <?php
-                }else if($code == "themsanpham"){
-                    ?>
-                        <div class="container mt-3">
-                            <h3>Thêm sản phẩm</h3>                    
-                            <form action="add.php" method="post" enctype="multipart/form-data">
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">ID_Danh mục: </span>
-                                    <select name="iddanhmuc" id="iddanhmuc">
-                                        <?php
-                                            include_once "ketnoi.php";
-                                            $sql = "Select * from category";
-                                            $rs = mysqli_query($con,$sql);
-                                            while($r = mysqli_fetch_assoc($rs)){
-                                        ?>
-                                        <option value="<?=$r['id_category']?>"><?=$r['name_category']?></option>
-                                        <?php
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Tên sản phẩm</span>
-                                    <input type="text" class="form-control" id="tensanpham" name="tensanpham">
-                                </div>
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Giá gốc</span>
-                                    <input type="text" class="form-control" id="giagoc" name="giagoc">
-                                </div>
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Số lượng</span>
-                                    <input type="text" class="form-control" id="soluong" name="soluong">
-                                </div>
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Hình ảnh</span>
-                                    <input type="file" name="file_upload" id="file_upload"><br> 
-                                </div>
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">Mô tả</span>
-                                    <input type="text" class="form-control" id="mota" name="mota">
-                                </div>
-                                <input type="hidden" id="action" name="action" value="themsanpham" require>
-                                <div>
-                                    <button type="submit">Thêm</button>
-                                </div><br>
-                            </form>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <tr>
+                                        <th class="title">STT</th>
+                                        <th class="title">ID_Hóa đơn</th>
+                                        <th class="title">ID_Người dùng</th>
+                                        <th class="title">Tên đầy đủ</th>
+                                        <th class="title">Email</th>
+                                        <th class="title">SĐT</th>
+                                        <th class="title">Địa chỉ</th>
+                                        <th class="title">Chú thích</th>
+                                        <th class="title">Ngày đặt hàng</th>
+                                        <th class="title">Tình trạng</th>
+                                        <th class="title">Tổng tiền phải trả</th>
+                                        <th class="title">Chức năng</th>
+                                    </tr>
+                                    <?php
+                                        include_once "ketnoi.php";
+                                        $sql = "SELECT * FROM orders ";
+                                        $rs = mysqli_query($con,$sql);
+                                        $count = 0;
+                                        while($r = mysqli_fetch_assoc($rs)){
+                                            $count ++;
+                                    ?>
+                                    <tr style="text-align: center;">
+                                        <td><?=$count?></td>
+                                        <td><?=$r['id_orders']?></td>
+                                        <td><?=$r['id_user']?></td>
+                                        <td><?=$r['fullname']?></td>
+                                        <td><?=$r['email']?></td>
+                                        <td><?=$r['phone_number']?></td>
+                                        <td><?=$r['address']?></td>
+                                        <td><?=$r['note']?></td>                                   
+                                        <td><?=$r['order_date']?></td>
+                                        <td><?=$r['status']?></td>
+                                        <td><?=$r['total_moneyFinal']?></td>
+                                        <td>
+                                            <a href="#"><button type="button">Sửa</button></a>
+                                            <a href="#"><button type="button">Xóa</button></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->                                    
                         </div>
-                    <?php    
-                }else if($code == "themanh"){
-                    ?>
-                        <div class="container mt-3">
-                            <h3>Thêm ảnh</h3>                    
-                            <form action="add.php" method="post" enctype="multipart/form-data">
-                                <div class="input-group input-group-lg mb-3">
-                                    <span class="input-group-text">ID_Sản phẩm: </span>
-                                    <select name="idsp" id="idsp">
-                                        <?php
-                                            include_once "ketnoi.php";
-                                            $sql = "Select * from product";
-                                            $rs = mysqli_query($con,$sql);
-                                            while($r = mysqli_fetch_assoc($rs)){
-                                        ?>
-                                        <option value="<?=$r['id_product']?>"><?=$r['title']?></option>
-                                        <?php
-                                            }
-                                        ?>
-                                    </select>
-                                    <div class="input-group input-group-lg mb-3">
-                                        <span class="input-group-text">Hình ảnh</span>
-                                        <input type="file" name="file_upload" id="file_upload"><br> 
-                                    </div>
-                                </div>
-                                <input type="hidden" id="action" name="action" value="themanh" require>
-                                <div>
-                                    <button type="submit">Thêm</button>
-                                </div><br>
-                            </form>
-                        </div>
-                    <?php
-                }
-            ?>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
         </div>
     </div>
 
