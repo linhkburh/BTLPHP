@@ -102,7 +102,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="/github/BTLPHP/coloshop-master/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -218,7 +218,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Page Title</h1>
+                    <h1 class="page-header"></h1>
                 </div>
             </div>
 
