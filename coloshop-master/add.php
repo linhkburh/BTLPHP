@@ -28,15 +28,14 @@
             $sql = "INSERT INTO product (id_category,title,price,num,thumbnail,description,created_at,updated_at) VALUES ('$iddanhmuc','$tensanpham','$giagoc','$sl','$slug','$mota','$date','$date')";
             $result = mysqli_query($con, $sql);
             
-            if ($result) {
-            header("Loaction: dataProduct.php");
-            }else{
+            if (!$result) {
             echo '<script language="javascript">alert("Thêm thất bại!");</script>';
             }
             } else {
             // Không phải file ảnh
             echo "File không cho phép";
             }
+            header("Loaction: dataProduct.php");
     }else if($code == "themanh"){
         $idsanpham = $_POST['idsp'];
         include_once "ketnoi.php";
@@ -54,15 +53,14 @@
         // Thêm ảnh vào Database
         $sql = "INSERT INTO gallery (id_product,thumbnail) VALUES ('$idsanpham','$slug')";
         $result = mysqli_query($con, $sql);
-        if ($result) {
-        header("Loaction: dataThumnail.php");
-        }else{
+        if (!$result) {
         echo '<script language="javascript">alert("Thêm thất bại!");</script>';
         }
         } else {
         // Không phải file ảnh
         echo "File không cho phép";
         }
+        header("Loaction: dataThumnail.php");
 }
     mysqli_close($con); 
 ?>

@@ -282,6 +282,7 @@
             
     }
             function thanhtoan(total){
+                
                 window.location = "thanhtoan.php?total_money="+total;
             }
         </script>

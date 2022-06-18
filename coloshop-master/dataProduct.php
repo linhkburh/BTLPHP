@@ -268,7 +268,7 @@
                                         <td><?=$r['created_at']?></td>
                                         <td><?=$r['updated_at']?></td>
                                         <td>
-                                            <a href="#"><button type="button">Sửa</button></a>
+                                            <a href="suadata.php?idsanpham=<?=$r['id_product']?>&action=suasanpham"><button type="button">Sửa</button></a>
                                             <a href="#"><button type="button">Xóa</button></a>
                                         </td>
                                     </tr>
