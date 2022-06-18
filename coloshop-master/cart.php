@@ -250,7 +250,7 @@
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
                                   <td><?=$row['total_money']?></td>                    
                                   <td>
-                                    <a href="cart_delete.php?id_pr=<?=$row['id_product']?>"><button style="width: 70px; background-color: #fe4c50cf;">Xóa</button></a>
+                                    <button onclick="xoa(<?=$row['id_product']?>)" style="width: 70px; background-color: #fe4c50cf;">Xóa</button>
                                   </td>
                                 </tr>
                               <?php    
@@ -267,7 +267,14 @@
         <div style="margin-left: 64%;">
             <a href="ThanhToan.php" class="btn btn-dark">Thanh Toán <i class="fa fa-chevron-right"></i> </a>
         </div>
-
+        <script type="text/javascript">
+            function xoa(id){
+              var cf = confirm("Bạn có thực sự muốn xóa sản phẩm này?");
+              if(cf){
+                window.location= "cart_delete.php?id_pr="+id;
+      }
+    }
+        </script>
 
         <!-- Newsletter -->
 
