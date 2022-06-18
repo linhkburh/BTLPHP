@@ -262,7 +262,7 @@
                                         <td><?=$r['total_moneyFinal']?></td>
                                         <td>
                                             <a href="#"><button type="button">Sửa</button></a>
-                                            <a href="#"><button type="button">Xóa</button></a>
+                                            <a href="#"><button type="button" onclick="xoa('<?=$r['id_orders']?>')">Xóa</button></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -270,6 +270,20 @@
                                     ?>
                                 </table>
                             </div>
+                            <script type="text/javascript">
+                                function xoa(id){
+                                    var cf = confirm("Bạn có thực sự muốn xóa không");
+                                    if(cf){
+                                        var f = document.getElementById('xoa');
+                                        document.getElementById('iddonhang').value = id;
+                                        f.submit();
+                                    }
+                                }
+                            </script>
+                            <form action="deletedata.php" method="post" id="xoa">
+                                <input type="hidden" id="iddonhang" name="iddonhang">
+                                <input type="hidden" id="action" name="action" value="xoadonhang">
+                            </form>
                             <!-- /.table-responsive -->                                    
                         </div>
                         <!-- /.panel-body -->

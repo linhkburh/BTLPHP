@@ -316,33 +316,99 @@
                             </form>
                         </div>
                     <?php    
-                }else if($code == "themanh"){
+                }else if($code == "suanguoidung"){
                     ?>
                         <div class="container mt-3">
-                            <h3>Thêm ảnh</h3>                    
-                            <form action="add.php" method="post" enctype="multipart/form-data">
+                            <h3>Sửa người dùng</h3>                    
+                            <form action="update.php" method="post" enctype="multipart/form-data">
                                 <div class="input-group input-group-lg mb-3">
+                                        <?php
+                                            include_once "ketnoi.php";
+                                            $idnguoidung = $_GET['idnguoidung'];
+                                            $sql1 = "Select * from user where id_user = '$idnguoidung'";
+                                            $rs1 = mysqli_query($con,$sql1);
+                                            while($r1 = mysqli_fetch_assoc($rs1)){
+                                        ?>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">id_user</span>
+                                            <input type="text" class="form-control" id="idnguoidung" name="idnguoidung" value="<?=$r1['id_user']?>" readonly>
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">Tên đầy đủ</span>
+                                            <input type="text" class="form-control" id="tennguoidung" name="tennguoidung" value="<?=$r1['fullname']?>">
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">email</span>
+                                            <input type="text" class="form-control" id="email" name="email" value="<?=$r1['email']?>">
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">SĐT</span>
+                                            <input type="text" class="form-control" id="sdt" name="sdt" value="<?=$r1['phone_number']?>">
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">Địa chỉ</span>
+                                            <input type="text" class="form-control" id="diachi" name="diachi" value="<?=$r1['address']?>">
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">Mật khẩu mới</span>
+                                            <input type="password" class="form-control" id="matkhau" name="matkhau" >
+                                        </div>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">Ngày tạo</span>
+                                            <input type="text" class="form-control" value="<?=$r1['created_at']?>" readonly>
+                                        </div>
+                                </div>
+                                <?php
+                                            }
+                                ?>
+                                <input type="hidden" id="action" name="action" value="suanguoidung" require>
+                                <div>
+                                    <button type="submit">Lưu</button>
+                                </div><br>
+                            </form>
+                        </div>
+                    <?php
+                }else if($code == "suaanh"){
+                    ?>
+                        <div class="container mt-3">
+                            <h3>Sửa ảnh</h3>                    
+                            <form action="update.php" method="post" enctype="multipart/form-data">
+                                <div class="input-group input-group-lg mb-3">
+                                    <?php
+                                        include_once "ketnoi.php";
+                                        $sql1 = "Select * from gallery";
+                                        $rs1 = mysqli_query($con,$sql1);
+                                        while($r1 = mysqli_fetch_assoc($rs1)){
+                                    ?>
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">ID ảnh</span>
+                                        <input type="text" class="form-control" id="idanh" name="idanh" value="<?=$r1['id_gallery']?>" readonly>
+                                    </div>
                                     <span class="input-group-text">ID_Sản phẩm: </span>
-                                    <select name="idsp" id="idsp">
+                                    <select name="idsanpham" id="idsanpham">
                                         <?php
                                             include_once "ketnoi.php";
                                             $sql = "Select * from product";
                                             $rs = mysqli_query($con,$sql);
                                             while($r = mysqli_fetch_assoc($rs)){
                                         ?>
-                                        <option value="<?=$r['id_product']?>"><?=$r['title']?></option>
+                                        <option value="<?=$r['id_product']?>">ID:<?=$r['id_product']?>/<?=$r['title']?></option>
                                         <?php
                                             }
                                         ?>
                                     </select>
                                     <div class="input-group input-group-lg mb-3">
                                         <span class="input-group-text">Hình ảnh</span>
+                                        <img src="<?=$thumbnail?>">
                                         <input type="file" name="file_upload" id="file_upload"><br> 
                                     </div>
                                 </div>
-                                <input type="hidden" id="action" name="action" value="themanh" require>
+                                <?php
+                                            }
+                                ?>
+                                <input type="hidden" id="action" name="action" value="suaanh" require>
                                 <div>
-                                    <button type="submit">Thêm</button>
+                                    <button type="submit">Lưu</button>
                                 </div><br>
                             </form>
                         </div>

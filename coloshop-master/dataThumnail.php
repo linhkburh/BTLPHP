@@ -253,8 +253,8 @@
                                         <td><?=$r['id_product']?></td>
                                         <td><img src="<?=$r['thumbnail']?>" width="100" height="100"></td>
                                         <td>
-                                            <a href="#"><button type="button">Sửa</button></a>
-                                            <a href="#"><button type="button">Xóa</button></a>
+                                            <a href="suadata.php?idanh=<?=$r['id_gallery']?>&action=suaanh""><button type="button">Sửa</button></a>
+                                            <a href="#"><button type="button" onclick="xoa('<?=$r['id_gallery']?>')">Xóa</button></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -262,6 +262,20 @@
                                     ?>
                                 </table>
                             </div>
+                            <script type="text/javascript">
+                                function xoa(id){
+                                    var cf = confirm("Bạn có thực sự muốn xóa không");
+                                    if(cf){
+                                        var f = document.getElementById('xoa');
+                                        document.getElementById('idanh').value = id;
+                                        f.submit();
+                                    }
+                                }
+                            </script>
+                            <form action="deletedata.php" method="post" id="xoa">
+                                <input type="hidden" id="idanh" name="idanh">
+                                <input type="hidden" id="action" name="action" value="xoaanh">
+                            </form>
                             <!-- /.table-responsive -->                                    
                         </div>
                         <!-- /.panel-body -->

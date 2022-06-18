@@ -252,7 +252,7 @@
                                         <td><?=$r['name_category']?></td>
                                         <td>
                                             <a href="suadata.php?iddanhmuc=<?=$r['id_category']?>&action=suadanhmuc"><button type="button">Sửa</button></a>
-                                            <a href="#"><button type="button">Xóa</button></a>
+                                            <a href="#"><button type="button" onclick="xoa('<?=$r['id_category']?>')">Xóa</button></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -260,6 +260,20 @@
                                     ?>
                                 </table>
                             </div>
+                            <script type="text/javascript">
+                                function xoa(id){
+                                    var cf = confirm("Bạn có thực sự muốn xóa không");
+                                    if(cf){
+                                        var f = document.getElementById('xoa');
+                                        document.getElementById('iddanhmuc').value = id;
+                                        f.submit();
+                                    }
+                                }
+                            </script>
+                            <form action="deletedata.php" method="post" id="xoa">
+                                <input type="hidden" id="iddanhmuc" name="iddanhmuc">
+                                <input type="hidden" id="action" name="action" value="xoadanhmuc">
+                            </form>
                             <!-- /.table-responsive -->                                    
                         </div>
                         <!-- /.panel-body -->
