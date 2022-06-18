@@ -224,6 +224,7 @@
                                 <?php
                                     include_once('ketnoi.php');
                                     $Email_User = $_COOKIE['email'];
+                                    
                                     $sql = "Select id_user from user where email = '".$Email_User."'";
                                     $rs = mysqli_query($con,$sql);
                                     while($row = mysqli_fetch_assoc($rs)){
