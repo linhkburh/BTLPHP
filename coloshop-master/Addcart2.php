@@ -26,9 +26,10 @@
         }
         else if($row2 == null){
             $sql3 = "INSERT INTO order_details (id_user, id_product, price, num, status)
-            VALUES ('$id_user', '$id', '$price', '1',0)";
+            VALUES ('$id_user', '$id', '$price', 1,0)";
             mysqli_query($con,$sql3);
             mysqli_close($con);
         }
+
     header("Location: cart.php");
 ?>
