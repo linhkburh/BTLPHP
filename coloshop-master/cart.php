@@ -231,14 +231,14 @@
                                     $id_user = $row['id_user'];
                                      }
 
-                                    $sql = "SELECT product.id_product, thumbnail, title, order_details.price, num FROM 
+                                    $sql = "SELECT product.id_product, thumbnail, title, order_details.price, order_details.num FROM 
                                     product inner join order_details on product.id_product = order_details.id_product
                                     where order_details.id_user = $id_user";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
-                                    $TongTien;
                                     while($row = mysqli_fetch_assoc($rs)){ 
                                         $count++;
+                                        $TongTien = $row['price']*$row['num'];
                                        
                                 ?>
 
@@ -251,7 +251,7 @@
                                         <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">-</button></a>
                                         <?=$row['num']?>
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
-                                  <td><?=$row['price']?>*<?=$row['num']?></td>                    
+                                  <td><?=$TongTien?></td>                    
                                   <td>
                                     <button onclick="xoa(<?=$row['id_product']?>)" style="width: 70px; background-color: #fe4c50cf;">Xóa</button>
 
