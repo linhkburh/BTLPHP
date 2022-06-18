@@ -14,6 +14,13 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+<script type="text/javascript">
+    function add(id){
+		var f = document.getElementById('add');
+        document.getElementById('id').value = id;
+        f.submit();
+    }
+</script>
 <?php
 	$giohang = "";
 	$Addgiohang = "";
@@ -365,13 +372,15 @@
 												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="<?=$Addgiohang?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row['id_product']?>')">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
 									?>
 								</div>
-
+								<form action="<?=$Addgiohang?>" method="post" id="add">
+									<input type="hidden" id="id" name="id">
+								</form>
 								<!-- Product Sorting -->
 
 								<div class="product_sorting_container product_sorting_container_bottom clearfix">

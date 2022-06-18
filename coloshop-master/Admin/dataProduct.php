@@ -33,6 +33,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .title{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -115,7 +120,7 @@
                         <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="dataCategories.php"><i class="fa fa-sitemap fa-fw"></i>Danh mục sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Danh mục sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -131,7 +136,7 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="dataProduct.php"><i class="fa fa-sitemap fa-fw"></i>Sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -211,6 +216,68 @@
             </div>
 
             <!-- ... Your content goes here ... -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Bảng sản phẩm
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <tr>
+                                        <th class="title">STT</th>
+                                        <th class="title">ID_Sản phẩm</th>
+                                        <th class="title">ID_danh mục</th>
+                                        <th class="title">Tên sản phẩm</th>
+                                        <th class="title">Giá gốc</th>
+                                        <th class="title">Giá bán</th>
+                                        <th class="title">Số lượng</th>
+                                        <th class="title">Hình ảnh</th>
+                                        <th class="title">Mô tả</th>
+                                        <th class="title">Ngày thêm</th>
+                                        <th class="title">Ngày chỉnh sửa</th>
+                                        <th class="title">Chức năng</th>
+                                    </tr>
+                                    <?php
+                                        include_once "ketnoi.php";
+                                        $sql = "SELECT * FROM product ";
+                                        $rs = mysqli_query($con,$sql);
+                                        $count = 0;
+                                        while($r = mysqli_fetch_assoc($rs)){
+                                            $count ++;
+                                    ?>
+                                    <tr style="text-align: center;">
+                                        <td><?=$count?></td>
+                                        <td><?=$r['id_product']?></td>
+                                        <td><?=$r['id_category']?></td>
+                                        <td><?=$r['title']?></td>
+                                        <td><?=$r['price']?></td>
+                                        <td><?=$r['discount']?></td>
+                                        <td><?=$r['num']?></td>
+                                        <td><img src="<?=$r['thumbnail']?>"></td>
+                                        <td><?=$r['description']?></td>
+                                        <td><?=$r['created_at']?></td>
+                                        <td><?=$r['updated_at']?></td>
+                                        <td>
+                                            <a href="#"><button type="button">Sửa</button></a>
+                                            <a href="#"><button type="button">Xóa</button></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->                                    
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
 
         </div>
     </div>
