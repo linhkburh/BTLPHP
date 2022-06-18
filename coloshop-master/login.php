@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script type="text/javascript">
-        function submit()
+        function submit1()
         {
             document.send_index.submit();
+        }
+        function submit2()
+        {
+            document.send_Admin.submit();
         }
     </script>   
 </head>
@@ -36,13 +40,19 @@
                 <form action="index.php" method="post" name="send_index">
                     <input type="hidden" id="key_index" name="key_index" value="<?=$uname?>">
                 </form>
-                <script type="text/javascript">    submit();      </script>
+                <script type="text/javascript">    submit1();      </script>
                 <?php
             }
         }
         while($r2 = mysqli_fetch_assoc($rs2)){
             if($r2['email'] == $uname && $r2['password'] == $upass ){
-                header("Location: Admin/Admin.php");
+                //header("Location: Admin/Admin.php");
+                ?>
+                <form action="Admin/Admin.php" method="post" name="send_Admin">
+                    <input type="hidden" id="key_admin" name="key_admin" value="<?=$uname?>">
+                </form>
+                <script type="text/javascript">    submit2();      </script>
+                <?php
             }else{
                 ?><p style="margin-left: 40%; margin-top: 3%; color: red">
                 <?php

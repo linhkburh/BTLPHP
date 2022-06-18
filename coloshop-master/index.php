@@ -13,12 +13,21 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<script type="text/javascript">
+    function add(id){
+		var f = document.getElementById('add');
+        document.getElementById('id').value = id;
+        f.submit();
+    }
+</script>
 <?php
 	$giohang = "";
 	$tempcart = "";	
+	$Addgiohang = "";
 	if(isset($_COOKIE['email']) /* && $_COOKIE['email'] != $_POST['key_index'] */){
 		$temp = $_COOKIE['email'];
 		$giohang = "cart.php";
+		$Addgiohang = "Addcart2.php";
 		?>
 		<style>
 			.account{
@@ -88,6 +97,7 @@
 		<?php
 	}else{
 		$giohang = "login.html";
+		$Addgiohang = "login.html";
 		?>
 		<style>
 			.account1{
@@ -331,7 +341,7 @@
 												<div class="product_price"><?=$row1['price']?><span><?=$row1['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row1['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row1['id_product']?>')">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
@@ -355,7 +365,7 @@
 												<div class="product_price"><?=$row2['price']?><span><?=$row2['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row2['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row2['id_product']?>')">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
@@ -379,7 +389,7 @@
 												<div class="product_price"><?=$row3['price']?><span><?=$row3['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row3['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row3['id_product']?>')">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
@@ -403,7 +413,7 @@
 												<div class="product_price"><?=$row4['price']?><span><?=$row4['discount']?></span></div>
 											</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="Addcart2.php?id=<?=$row4['id_product']?>">Thêm vào giỏ hàng</a></div>
+										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row4['id_product']?>')">Thêm vào giỏ hàng</a></div>
 									</div>
 									<?php
 										}
@@ -413,7 +423,9 @@
 			</div>
 		</div>
 	</div>
-
+	<form action="<?=$Addgiohang?>" method="post" id="add">
+		<input type="hidden" id="id" name="id">
+	</form>
 	<!-- Deal of the week -->
 
 	<div class="deal_ofthe_week">
@@ -471,181 +483,31 @@
 						<div class="owl-carousel owl-theme product_slider">
 
 							<!-- Slide 1 -->
-
+							<?php
+								include_once "ketnoi.php";
+								$sql = "Select * from product where num_sold >= '10'";
+								$rs = mysqli_query($con,$sql);
+								while($r = mysqli_fetch_assoc($rs)){
+							?>
 							<div class="owl-item product_slider_item">
 								<div class="product-item">
 									<div class="product discount">
 										<div class="product_image">
-											<img src="images/product_1.png" alt="">
+											<img src="<?=$r['thumbnail']?>" alt="">
 										</div>
 										<div class="favorite favorite_left"></div>
 										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
 										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-											<div class="product_price">$520.00<span>$590.00</span></div>
+											<h6 class="product_name"><a href="single.php?id=<?=$r['id_product']?>"><?=$r['title']?></a></h6>
+											<div class="product_price"><?=$r['discount']?><span><?=$r['price']?></span></div>
 										</div>
 									</div>
 								</div>
 							</div>
-
-							<!-- Slide 2 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item women">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_2.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
-											<div class="product_price">$610.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 3 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item women">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_3.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Blue Yeti USB Microphone Blackout Edition</a></h6>
-											<div class="product_price">$120.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 4 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item accessories">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_4.png" alt="">
-										</div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
-											<div class="product_price">$410.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 5 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item women men">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_5.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Pryma Headphones, Rose Gold & Grey</a></h6>
-											<div class="product_price">$180.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 6 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item accessories">
-									<div class="product discount">
-										<div class="product_image">
-											<img src="images/product_6.png" alt="">
-										</div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-											<div class="product_price">$520.00<span>$590.00</span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 7 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item women">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_7.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
-											<div class="product_price">$610.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 8 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item accessories">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_8.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Blue Yeti USB Microphone Blackout Edition</a></h6>
-											<div class="product_price">$120.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 9 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item men">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_9.png" alt="">
-										</div>
-										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-										<div class="favorite favorite_left"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
-											<div class="product_price">$410.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide 10 -->
-
-							<div class="owl-item product_slider_item">
-								<div class="product-item men">
-									<div class="product">
-										<div class="product_image">
-											<img src="images/product_10.png" alt="">
-										</div>
-										<div class="favorite"></div>
-										<div class="product_info">
-											<h6 class="product_name"><a href="single.php">Pryma Headphones, Rose Gold & Grey</a></h6>
-											<div class="product_price">$180.00</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<?php
+								}
+							?>
 						</div>
-
 						<!-- Slider Navigation -->
 
 						<div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">

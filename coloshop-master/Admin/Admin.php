@@ -33,6 +33,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php
+        $temp = "";
+        if(isset($_COOKIE['admin'])){
+            $temp = $_COOKIE['admin'];
+        }
+        if(isset($_POST['key_admin'])){
+            setcookie("admin",$_POST['key_admin'],time()+120,'/','','',true);
+            $temp = $_COOKIE['admin'];
+        }else if(!isset($_COOKIE['admin'])){
+            header("Location: /github/BTLPHP/coloshop-master/login.html");
+        }
+?>
 </head>
 <body>
 
@@ -82,7 +94,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i>Hi! <?=$temp?><b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -90,7 +102,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="/github/BTLPHP/coloshop-master/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -163,7 +175,7 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Ảnh minh họa sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataThumnail.php"><i class="fa fa-sitemap fa-fw"></i>Ảnh minh họa sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>

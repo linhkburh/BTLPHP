@@ -220,7 +220,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Bảng Người dùng
+                            Bảng danh mục sản phẩm
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -228,38 +228,24 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <tr>
                                         <th class="title">STT</th>
-                                        <th class="title">ID_Hóa đơn</th>
-                                        <th class="title">ID_Người dùng</th>
-                                        <th class="title">Tên đầy đủ</th>
-                                        <th class="title">Email</th>
-                                        <th class="title">SĐT</th>
-                                        <th class="title">Địa chỉ</th>
-                                        <th class="title">Chú thích</th>
-                                        <th class="title">Ngày đặt hàng</th>
-                                        <th class="title">Tình trạng</th>
-                                        <th class="title">Tổng tiền phải trả</th>
+                                        <th class="title">ID_Ảnh</th>
+                                        <th class="title">ID_Sản phẩm</th>
+                                        <th class="title">Ảnh</th>
                                         <th class="title">Chức năng</th>
                                     </tr>
                                     <?php
                                         include_once "ketnoi.php";
-                                        $sql = "SELECT * FROM orders ";
+                                        $sql = "SELECT * FROM gallery ";
                                         $rs = mysqli_query($con,$sql);
                                         $count = 0;
                                         while($r = mysqli_fetch_assoc($rs)){
                                             $count ++;
                                     ?>
-                                    <tr style="text-align: center;">
+                                    <tr style="text-align: center;">	
                                         <td><?=$count?></td>
-                                        <td><?=$r['id_orders']?></td>
-                                        <td><?=$r['id_user']?></td>
-                                        <td><?=$r['fullname']?></td>
-                                        <td><?=$r['email']?></td>
-                                        <td><?=$r['phone_number']?></td>
-                                        <td><?=$r['address']?></td>
-                                        <td><?=$r['note']?></td>                                   
-                                        <td><?=$r['order_date']?></td>
-                                        <td><?=$r['status']?></td>
-                                        <td><?=$r['total_moneyFinal']?></td>
+                                        <td><?=$r['id_gallery']?></td>
+                                        <td><?=$r['id_product']?></td>
+                                        <td><?=$r['thumbnail']?></td>
                                         <td>
                                             <a href="#"><button type="button">Sửa</button></a>
                                             <a href="#"><button type="button">Xóa</button></a>

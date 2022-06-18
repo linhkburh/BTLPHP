@@ -120,7 +120,7 @@
                         <a href="Admin.php" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Danh mục sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataCategories.php"><i class="fa fa-sitemap fa-fw"></i>Danh mục sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -136,7 +136,7 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataProduct.php"><i class="fa fa-sitemap fa-fw"></i>Sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -152,7 +152,7 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Người dùng<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataUser.php"><i class="fa fa-sitemap fa-fw"></i>Người dùng<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -168,7 +168,23 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Hóa đơn<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataProduct.php"><i class="fa fa-sitemap fa-fw"></i>Ảnh minh họa sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <!-- <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                    </li>
+                    <li>
+                        <a href="dataOrders.php"><i class="fa fa-sitemap fa-fw"></i>Hóa đơn<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>

@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <title>ADMIN concashop</title>
-
+    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -168,7 +168,7 @@
                         </ul> -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Ảnh minh họa sản phẩm<!-- <span class="fa arrow"></span> --></a>
+                        <a href="dataThumnail.php"><i class="fa fa-sitemap fa-fw"></i>Ảnh minh họa sản phẩm<!-- <span class="fa arrow"></span> --></a>
                         <!-- <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Second Level Item</a>
@@ -262,10 +262,23 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-
+                
+        </div>
+        <div class="container mt-3">
+            <h3>Thêm danh mục</h3>                    
+            <form action="add.php" method="post">
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">Tên danh mục</span>
+                    <input type="text" class="form-control" id="tendanhmuc" name="tendanhmuc">
+                </div>
+                <input type="hidden" id="action" name="action" value="themdanhmuc" require>
+                <div>
+                    <button type="submit">Thêm</button>
+                </div><br>
+            </form>
         </div>
     </div>
-
+    
 </div>
 
 <!-- jQuery -->
