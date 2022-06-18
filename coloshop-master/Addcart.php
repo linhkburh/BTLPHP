@@ -19,7 +19,7 @@
         if($row2 != null){
             $tempnum = $row2['num']+$sl;
             $sql = "UPDATE order_details
-            SET num = '$tempnum'
+            SET num = '$tempnum', total_money = '$price*$tempnum'
             WHERE id_product = '$id' && id_user ='$id_user'";
             mysqli_query($con,$sql);
         }
