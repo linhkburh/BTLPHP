@@ -29,7 +29,6 @@
             VALUES ('$id_user', '$id', '$price', '1','$price')";
             mysqli_query($con,$sql3);
             mysqli_close($con);
-            echo "done";
         }
-    //header("Location: cart.php");
+    header("Location: cart.php");
 ?>

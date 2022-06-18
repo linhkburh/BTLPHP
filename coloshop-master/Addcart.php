@@ -28,8 +28,7 @@
             $sql3 = "INSERT INTO order_details (id_user, id_product, price, num, total_money)
             VALUES ('$id_user', '$id', '$price', '$sl','$sum')";
             mysqli_query($con,$sql3);
-            echo "done";
         }
         mysqli_close($con);
-    //header("Location: cart.php");
+    header("Location: cart.php");
 ?>
