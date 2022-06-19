@@ -60,7 +60,7 @@
 		</style>
 		<?php
 	}else if(isset($_POST['key_index'])){
-		setcookie("email",$_POST['key_index'],time()+120,'/','','',true);
+		setcookie("email",$_POST['key_index'],time()+120000,'/','','',true);
 		$temp = $_POST['key_index'];
 		$tempcart = $_POST['key_index'];
 		$giohang = "cart.php?key_cart=";
@@ -324,7 +324,7 @@
 									<?php
 										include_once "ketnoi.php";
 										$date = date("Y-m-d");
-										$sql1 = "Select * From product where id_category ='3' ";
+										$sql1 = "Select * From product where id_category ='3' AND DateDiff('$date',created_at) < '7'";
 										$rs1 = mysqli_query($con,$sql1);
 										while($row1 = mysqli_fetch_assoc($rs1)){
 									?>
@@ -349,7 +349,7 @@
 									<!-- Product nu-->
 									<?php
 										include_once "ketnoi.php";
-										$sql2 = "Select * From product where id_category ='1' AND created_at = '$date'";
+										$sql2 = "Select * From product where id_category ='1' AND DateDiff('$date',created_at) < '7'";
 										$rs2 = mysqli_query($con,$sql2);
 										while($row2 = mysqli_fetch_assoc($rs2)){
 									?>
@@ -373,7 +373,7 @@
 									<!-- Product phukien-->
 									<?php
 										include_once "ketnoi.php";
-										$sql3 = "Select * From product where id_category ='2' AND created_at = '$date'";
+										$sql3 = "Select * From product where id_category ='2' AND DateDiff('$date',created_at) < '7'";
 										$rs3 = mysqli_query($con,$sql3);
 										while($row3 = mysqli_fetch_assoc($rs3)){
 									?>
@@ -397,7 +397,7 @@
 									<!-- Product ca2-->
 									<?php
 										include_once "ketnoi.php";
-										$sql4 = "Select * From product where id_category ='4' AND created_at = '$date'";
+										$sql4 = "Select * From product where id_category ='4' AND DateDiff('$date',created_at) < '7'";
 										$rs4 = mysqli_query($con,$sql4);
 										while($row4 = mysqli_fetch_assoc($rs4)){
 									?>

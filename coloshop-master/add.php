@@ -35,7 +35,13 @@
             // Không phải file ảnh
             echo "File không cho phép";
             }
-            header("Loaction: dataProduct.php");
+            /* ?>
+                <script>
+                    function back(){
+                        window.location="dataProduct.php";
+                    }
+                </script>
+            <?php */
     }else if($code == "themanh"){
         $idsanpham = $_POST['idsp'];
         include_once "ketnoi.php";

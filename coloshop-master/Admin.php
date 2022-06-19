@@ -39,10 +39,10 @@
             $temp = $_COOKIE['admin'];
         }
         if(isset($_POST['key_admin'])){
-            setcookie("admin",$_POST['key_admin'],time()+120,'/','','',true);
+            setcookie("admin",$_POST['key_admin'],time()+120000,'/','','',true);
             $temp = $_COOKIE['admin'];
         }else if(!isset($_COOKIE['admin'])){
-            header("Location: /github/BTLPHP/coloshop-master/login.html");
+            header("Location: login.html");
         }
 ?>
 </head>
