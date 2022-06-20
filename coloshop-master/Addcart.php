@@ -31,5 +31,5 @@
             mysqli_query($con,$sql3);
         }
         mysqli_close($con);
-    //header("Location: cart.php");
+    header("Location: cart.php");
 ?>
