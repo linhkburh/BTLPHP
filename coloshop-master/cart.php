@@ -229,9 +229,9 @@
                                     while($row = mysqli_fetch_assoc($rs)){
                                     $id_user = $row['id_user'];
                                      }
-                                    $sql = "SELECT product.id_product, thumbnail, title, order_details.price, order_details.num FROM 
-                                    product inner join order_details on product.id_product = order_details.id_product
-                                    where order_details.id_user = $id_user and status = 0";
+                                    $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
+                                    product inner join cart on product.id_product = cart.id_product
+                                    where cart.id_user = $id_user and status = 1";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
                                     $TongTien = 0;
