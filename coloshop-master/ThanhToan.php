@@ -260,7 +260,7 @@ HOTLINE:&nbsp; 0983.950.405</h5>
 </div>
 </div>
 <hr class="mb-4">
-<button class="btn btn-primary btn-lg btn-block" type="button" onclick="saveProfile(this)">Thanh Toán</button>
+<a href="Thanhtoandonhang.php"><button class="btn btn-primary btn-lg btn-block" type="button">Thanh Toán</button></a>
 </form>
 </div>
 </div>
