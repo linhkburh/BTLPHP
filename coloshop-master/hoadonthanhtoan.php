@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -97,7 +98,28 @@
 			}
 		</style>
 	</head>
-
+<?php
+	include_once('ketnoi.php');
+	$id_order = $_GET['id_order'];
+	$total_money = $_GET['total_money'];
+	$id_user = $_GET['id_user'];
+	$sql = "UPDATE orders set status = '1' , total_moneyFinal = $total_money WHERE id_user = $id_user and status = '0'";
+	mysqli_query($con,$sql);
+	$sql = "UPDATE order_details set status = '2' WHERE id_user = $id_user and status = '1'";
+	mysqli_query($con,$sql);
+	$sql = "DELETE cart where id_user = $id_user and status ='2'";
+	mysqli_query($con,$sql);
+	$sql = "SELECT email, fullname,phone_number,address from user WHERE id_user = $id_user";
+	$rs = mysqli_query($con,$sql);
+	while($row = mysqli_fetch_assoc($rs)){
+		$email = $row['email'];
+		$fullname = $row['fullname'];
+		$phone_number = $row['phone_number'];
+		$address = $row['address'];
+	}
+	mysqli_close($con);
+	$date = date("Y-m-d");
+?>
 	<body>
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
@@ -110,8 +132,8 @@
 								</td>
 
 								<td>
-									Mã hóa đơn #: 123<br />
-									Ngày tạo : January 1, 2015<br />
+									Mã hóa đơn #: $id_order<br />
+									Ngày tạo : <?=$date?><br />
 								</td>
 							</tr>
 						</table>
@@ -129,9 +151,9 @@
 								</td>
 
 								<td>
-									DuongQuangLinh<br />
-									123456<br />
-									duongquanglinh@example.com
+									<?=$fullname?>-<?=$phone_number?><br/>
+									<?=$address?><br/>
+									<?=$email?>
 								</td>
 							</tr>
 						</table>
@@ -145,39 +167,35 @@
 				</tr>
 
 				<tr class="details">
-					<td>Check</td>
+					<td>Thanh toán khi nhận hàng</td>
 
-					<td>1000</td>
+					<td>STK : 9704.2292.6928.5909</td>
 				</tr>
 
 				<tr class="heading">
-					<td>Item</td>
+					<td>Mặt hàng</td>
 
 					<td>Thành tiền</td>
 				</tr>
-
-				<tr class="Mặt hàng">
-					<td>Em sinh viên (3)</td>
-
-					<td>0</td>
-				</tr>
-
-				<tr class="item">
-					<td>Hosting (1)</td>
-
-					<td>75.00</td>
-				</tr>
-
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>10.00</td>
-				</tr>
-
-				<tr class="total">
-					<td></td>
-
-					<td>Tổng: 385.00</td>
+				<?php
+					include_once('ketnoi.php');
+					$sql = "SELECT id_product, num, total_money";
+					$rs = mysqli_query($con,$sql);
+					while($row = mysqli_fetch_assoc($rs)){
+						$id_product = $row['id_product'];
+						$sql1 = "SELECT title from product where id_product = $id_product"
+						$rs1 = mysqli_query($con,$sql1);
+						$row1 = mysqli_fetch_assoc($rs1)
+						$title = $row1['title'];
+						?>
+						<tr class="Mặt hàng">
+						<td><?=$title?> (<?=$row['num']?>)</td>
+						<td><?$row['toal_money']?></td>
+						</tr>
+					<?php	
+					}
+				?>
+					<td>Tổng: <?=$toal_money?></td>
 				</tr>
 			</table>
 		</div>
