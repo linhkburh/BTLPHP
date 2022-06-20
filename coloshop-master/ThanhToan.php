@@ -280,15 +280,15 @@ HOTLINE:&nbsp; 0983.950.405</h5>
 </div>
 </div>
 <hr class="mb-4">
-<a href="Thanhtoandonhang.php"><button class="btn btn-primary btn-lg btn-block" type="button">Thanh Toán</button></a>
+<button class="btn btn-primary btn-lg btn-block" onclick="thanhtoan(<?=$id_user?>,<?=$idorder?>,<?=$total_money?>)">Thanh Toán</button>
 </form>
 </div>
 </div>
 
 </div>
 <script type="text/javascript">
-  function thanhtoan(id_product){
-      window
+  function thanhtoan(id_user, id_order, total_money){
+      window.location = "hoadonthanhtoan.php?id_order="+id_order+"&total_money="+total_money+"&id_user="+id_user;
   }
 </script>
 <div  class="super_container">
