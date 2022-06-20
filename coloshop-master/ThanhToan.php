@@ -171,9 +171,11 @@
             $price = $row['price'];
             $num = $row['num'];
             $total_money = $row['total_money'];
-            $sql2 = "INSERT INTO order_details (id_orders, id_user, id_product, price, num, total_money) VALUES ('$id_orders', '$id_user', '$id_product', '$price', '$num', '$total_money')";
+            $sql2 = "INSERT INTO order_details ( id_user, id_product, price, num, total_money) VALUES ('$id_user', '$id_product', '$price', '$num', '$total_money')";
             mysqli_query($con,$sql2);
           }
+          $sql = "UPDATE order_details set id_orders = $id_orders where id_orders = 'NULL' and id_user = $id_user";
+          mysqli_query($con,$sql);
           $sql = "UPDATE cart set status = 2 WHERE id_user = $id_user and status = 1";
           mysqli_query($con,$sql);
           $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
