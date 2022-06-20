@@ -107,7 +107,7 @@
 	mysqli_query($con,$sql);
 	$sql = "UPDATE order_details set status = '2' WHERE id_user = $id_user and status = '1'";
 	mysqli_query($con,$sql);
-	$sql = "DELETE cart where id_user = $id_user and status ='2'";
+	$sql = "DELETE from cart where id_user = $id_user and status ='2'";
 	mysqli_query($con,$sql);
 	$sql = "SELECT email, fullname,phone_number,address from user WHERE id_user = $id_user";
 	$rs = mysqli_query($con,$sql);
@@ -117,7 +117,6 @@
 		$phone_number = $row['phone_number'];
 		$address = $row['address'];
 	}
-	mysqli_close($con);
 	$date = date("Y-m-d");
 ?>
 	<body>
@@ -128,11 +127,11 @@
 						<table>
 							<tr>
 								<td class="title">
-									<img src="C:/xampp/htdocs/GitHub/BTLPHP/coloshop-master/images/Logo.png" style="width: 100%; max-width: 300px" />
+									<img src="images/Logo.png" style="width: 100%; max-width: 300px" />
 								</td>
 
 								<td>
-									Mã hóa đơn #: $id_order<br />
+									Mã hóa đơn #: <?=$id_order?><br />
 									Ngày tạo : <?=$date?><br />
 								</td>
 							</tr>
@@ -179,23 +178,26 @@
 				</tr>
 				<?php
 					include_once('ketnoi.php');
-					$sql = "SELECT id_product, num, total_money";
+					$sql = "SELECT id_product, num, total_money from order_details WHERE status = '2' and id_user = $id_user";
 					$rs = mysqli_query($con,$sql);
+					$tongtien = 0;
 					while($row = mysqli_fetch_assoc($rs)){
+						$tongtien = $tongtien + $row['total_money'];
 						$id_product = $row['id_product'];
-						$sql1 = "SELECT title from product where id_product = $id_product"
+						$sql1 = "SELECT title from product where id_product = $id_product";
 						$rs1 = mysqli_query($con,$sql1);
-						$row1 = mysqli_fetch_assoc($rs1)
+						$row1 = mysqli_fetch_assoc($rs1);
 						$title = $row1['title'];
 						?>
 						<tr class="Mặt hàng">
-						<td><?=$title?> (<?=$row['num']?>)</td>
-						<td><?$row['toal_money']?></td>
+						<td>+) <?=$title?> (<?=$row['num']?>)</td>
+						<td><?=$row['total_money']?></td>
 						</tr>
 					<?php	
 					}
+					mysqli_close($con);
 				?>
-					<td>Tổng: <?=$toal_money?></td>
+					<td>Tổng: <?=$tongtien?></td>
 				</tr>
 			</table>
 		</div>
