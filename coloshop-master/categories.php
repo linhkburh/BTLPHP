@@ -369,7 +369,7 @@
 											<!-- <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div> -->
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php?id=<?=$row['id_product']?>"><?=$row['title']?></a></h6>
-												<div class="product_price"><?=$row['price']?><span><?=$row['discount']?></span></div>
+												<div class="product_price"><?=$row['discount']?><span><?=$row['price']?></span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row['id_product']?>')">Thêm vào giỏ hàng</a></div>

@@ -38,6 +38,13 @@
             text-align: center;
         }
     </style>
+    <?php
+    if(!isset($_COOKIE['admin'])){
+        header("Location: login.html");
+    }else{
+        $temp = $_COOKIE['admin'];
+    }
+    ?>
 </head>
 <body>
 
@@ -87,7 +94,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> <?=$temp?> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -290,16 +297,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="jsAdmin/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="jsAdmin/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="js/metisMenu.min.js"></script>
+<script src="jsAdmin/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/startmin.js"></script>
+<script src="jsAdmin/startmin.js"></script>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ADMIN concashop</title>
+    <title>Startmin - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,17 +34,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <?php
-        $temp = "";
-        if(isset($_COOKIE['admin'])){
-            $temp = $_COOKIE['admin'];
-        }
-        if(isset($_POST['key_admin'])){
-            setcookie("admin",$_POST['key_admin'],time()+120000,'/','','',true);
-            $temp = $_COOKIE['admin'];
-        }else if(!isset($_COOKIE['admin'])){
-            header("Location: login.html");
-        }
-?>
+    $temp = "";
+    if(isset($_COOKIE['admin'])){
+		$temp = $_COOKIE['admin'];
+	}else if(isset($_POST['key_admin'])){
+		setcookie("admin",$_POST['key_admin'],time()+120000,'/','','',true);
+        $temp = $_POST['key_admin'];
+	}
+    ?>
 </head>
 <body>
 
@@ -94,7 +91,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>Hi! <?=$temp?><b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> <?=$temp?> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -230,16 +227,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="jsAdmin/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="jsAdmin/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="js/metisMenu.min.js"></script>
+<script src="jsAdmin/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/startmin.js"></script>
+<script src="jsAdmin/startmin.js"></script>
 
 </body>
 </html>

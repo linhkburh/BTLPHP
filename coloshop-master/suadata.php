@@ -268,7 +268,7 @@
                                             while($r1 = mysqli_fetch_assoc($rs1)){
                                                 ?><div class="input-group input-group-lg mb-3">
                                                 <span class="input-group-text">ID sản phẩm</span>
-                                                <input type="text" class="form-control" id="idsanpham" name="idsanpham" value="<?=$r1['id_product']?>">
+                                                <input type="text" class="form-control" id="idsanpham" name="idsanpham" value="<?=$r1['id_product']?>" readonly>
                                             </div>
                                             <span class="input-group-text">ID_Danh mục: </span>
                                                 <select name="iddanhmuc" id="iddanhmuc">
@@ -299,7 +299,7 @@
                                 </div>
                                 <div class="input-group input-group-lg mb-3">
                                     <span class="input-group-text">Hình ảnh</span>
-                                    <img src="<?=$r1['thumbnail']?>">
+                                    <img src="<?=$r1['thumbnail']?>" width="150" height="150">
                                     <input type="file" name="file_upload" id="file_upload"><br> 
                                 </div>
                                 <div class="input-group input-group-lg mb-3">
@@ -376,7 +376,8 @@
                                 <div class="input-group input-group-lg mb-3">
                                     <?php
                                         include_once "ketnoi.php";
-                                        $sql1 = "Select * from gallery";
+                                        $idanh = $_GET['idanh'];
+                                        $sql1 = "Select * from gallery where id_gallery = '$idanh'";
                                         $rs1 = mysqli_query($con,$sql1);
                                         while($r1 = mysqli_fetch_assoc($rs1)){
                                     ?>
@@ -399,7 +400,7 @@
                                     </select>
                                     <div class="input-group input-group-lg mb-3">
                                         <span class="input-group-text">Hình ảnh</span>
-                                        <img src="<?=$thumbnail?>">
+                                        <img src="<?=$r1['thumbnail']?>" width="150" height="150">
                                         <input type="file" name="file_upload" id="file_upload"><br> 
                                     </div>
                                 </div>
