@@ -162,7 +162,7 @@
           $sql = "SELECT id_orders from orders WHERE id_user = $id_user and status = 0 ";
           $rs = mysqli_query($con,$sql);
           while($row = mysqli_fetch_assoc($rs)){  
-             $id_order = $row['id_orders'];
+             $idorder = $row['id_orders'];
           }
           $sql = "SELECT id_product, price, num, total_money from cart WHERE id_user = $id_user and status = 1";
           $rs = mysqli_query($con,$sql);
@@ -171,16 +171,16 @@
             $price = $row['price'];
             $num = $row['num'];
             $total_money = $row['total_money'];
-            $sql2 = "INSERT INTO order_details ( id_user, id_product, price, num, total_money) VALUES ('$id_user', '$id_product', '$price', '$num', '$total_money')";
+            $sql2 = "INSERT INTO order_details ( id_user, id_product, price, num,status, total_money) VALUES ('$id_user', '$id_product', '$price', '$num',1, '$total_money')";
             mysqli_query($con,$sql2);
           }
-          $sql = "UPDATE order_details set id_orders = $id_orders where id_orders = 'NULL' and id_user = $id_user";
+          $sql = "UPDATE order_details set id_orders = $idorder where status = '1' and id_user = $id_user";
           mysqli_query($con,$sql);
           $sql = "UPDATE cart set status = 2 WHERE id_user = $id_user and status = 1";
           mysqli_query($con,$sql);
           $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
           product inner join cart on product.id_product = cart.id_product
-          where cart.id_user = $id_user and status = 1";
+          where cart.id_user = $id_user and status = 2";
           $rs = mysqli_query($con,$sql);
           $count = 0;
           while($row = mysqli_fetch_assoc($rs)){ 
@@ -204,7 +204,7 @@
          ?>                    
   </table>
 </div> 
-<a href="#"><button style="max-width: 400px; margin-left: 300px;" class="btn btn-primary btn-lg btn-block" type="button">Hủy đơn hàng</button></a>
+<a href="huydonhang.php?id_user=<?=$id_user?>"><button style="max-width: 400px; margin-left: 300px;" class="btn btn-primary btn-lg btn-block" type="button">Hủy đơn hàng</button></a>
 <br>
 <div class="row">
 <div class="col-md-4 order-md-2 mb-4">
