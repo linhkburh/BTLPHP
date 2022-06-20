@@ -131,66 +131,53 @@
 </ul>
 </div>
 <div class="col-md-12">
-                            <table class="table table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th>STT</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên Sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th style="width: 100px;">Số lượng</th>
-                                    <th style="width: 100px;">Tổng tiền</th>                             
-                                  </tr>
-                                </thead>
-                                <?php
-                                $toal_money = $_GET['total_money'];
-                                  $id_user = $_GET['id_user'];
-                                  include_once "ketnoi.php";
-                                  $date = date("Y-m-d");
-                                  $sql = "UPDATE order_details set status = 1, NgayMua = $date where id_user = $id_user";
-                                  mysqli_query($con,$sql);                                
-                                    $sql = "SELECT product.id_product, thumbnail, title, order_details.price, order_details.num FROM 
-                                    product inner join order_details on product.id_product = order_details.id_product
-                                    where order_details.id_user = $id_user and status = 1 and NgayMua =$date";
-                                    $rs = mysqli_query($con,$sql);
-                                    $count = 0;
-                                    $TongTien = 0;
-                                    while($row = mysqli_fetch_assoc($rs)){ 
-                                        $count++;
-                                        $ThanhTien = $row['price']*$row['num'];
-                                        $TongTien = $TongTien + $ThanhTien;
-                                ?>
-
-                                <tr style="text-align: center">
-                                  <td><?=$count?></td>
-                                  <td><img src="<?=$row['thumbnail']?>"></td>
-                                  <td><?=$row['title']?></td>
-                                  <td><?=$row['price']?></td>
-                                  <td style="text-align: center;">
-                                        
-                                        <?=$row['num']?>
-                                        </td>
-                                  <td><?=$ThanhTien?></td>                    
-                                </tr>
-                              <?php    
-                                }
-                                mysqli_close($con);
-                              ?>
-                            </table>
-                        </div> 
+  <h4 class="mb-3">ĐƠN HÀNG CỦA BẠN</h4>
+   <table class="table table-bordered">
+      <thead>
+        <tr>
+        <th>STT</th>
+        <th>Ảnh</th>
+        <th>Tên Sản phẩm</th>
+        <th>Giá</th>
+        <th style="width: 100px;">Số lượng</th>
+        <th style="width: 100px;">Thành tiền</th>                             
+        </tr>
+      </thead>
+      <?php
+          include_once('ketnoi.php');
+          $id_user = $_GET['id_user'];
+          $toal_money = $_GET['total_money'];
+          $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
+          product inner join cart on product.id_product = cart.id_product
+          where cart.id_user = $id_user and status = 1";
+          $rs = mysqli_query($con,$sql);
+          $count = 0;
+          while($row = mysqli_fetch_assoc($rs)){ 
+            $count++;
+            $ThanhTien = $row['price']*$row['num'];
+      ?>
+      <tr style="text-align: center">
+        <td><?=$count?></td>
+        <td><img src="<?=$row['thumbnail']?>"></td>
+        <td><?=$row['title']?></td>
+        <td><?=$row['price']?></td>
+        <td style="text-align: center;">
+        <?=$row['num']?>
+        </td>
+        <td><?=$ThanhTien?></td>                    
+        <td>
+        </tr>
+        <?php    
+         }
+         mysqli_close($con);
+         ?>                    
+  </table>
+</div> 
 <div class="row">
 <div class="col-md-4 order-md-2 mb-4">
-<h4 class="d-flex justify-content-between align-items-center mb-3">
-<span class="text-muted">Đơn Hàng Của Bạn</span>
-<span class="badge badge-secondary badge-pill">0</span>
-</h4>
 <ul class="list-group mb-3">
 <li class="list-group-item d-flex justify-content-between">
 <span>Tổng Tiền</span>
-<?php
-  
-
-?>
 <strong><?=$toal_money?></strong>
 </li>
 </ul>
