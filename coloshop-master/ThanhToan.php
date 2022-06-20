@@ -164,14 +164,14 @@
           while($row = mysqli_fetch_assoc($rs)){  
              $idorder = $row['id_orders'];
           }
-          $sql = "SELECT id_product, price, num, total_money from cart WHERE id_user = $id_user and status = 1";
+          $sql = "SELECT id_product, price, num from cart WHERE id_user = $id_user and status = 1";
           $rs = mysqli_query($con,$sql);
           while($row = mysqli_fetch_assoc($rs)){ 
             $id_product = $row['id_product'];
             $price = $row['price'];
             $num = $row['num'];
-            $total_money = $row['total_money'];
-            $sql2 = "INSERT INTO order_details ( id_user, id_product, price, num,status, total_money) VALUES ('$id_user', '$id_product', '$price', '$num',1, '$total_money')";
+            $total_money = $num*$price;
+            $sql2 = "INSERT INTO order_details ( id_user, id_product, price, num,status, total_money) VALUES ('$id_user', '$id_product', '$price', '$num',1, '$total_money*')";
             mysqli_query($con,$sql2);
           }
           $sql = "UPDATE order_details set id_orders = $idorder where status = '1' and id_user = $id_user";
@@ -215,7 +215,7 @@
 </li>
 </ul>
 </div>
-<div class="col-md-8 order-md-1">
+<!-- <div class="col-md-8 order-md-1">
 <h4 class="mb-3">Địa Chỉ Ship Hàng</h4>
 <form class="needs-validation" novalidate>
 <div class="mb-3">
@@ -279,7 +279,7 @@ HOTLINE:&nbsp; 0983.950.405</h5>
 </label>
 </div>
 </div>
-<hr class="mb-4">
+<hr class="mb-4"> -->
 <button class="btn btn-primary btn-lg btn-block" onclick="thanhtoan(<?=$id_user?>,<?=$idorder?>,<?=$total_money?>)">Thanh Toán</button>
 </form>
 </div>
