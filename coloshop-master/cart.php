@@ -250,6 +250,7 @@
                                         <a href="cart_GiamSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">-</button></a>
                                         <?=$row['num']?>
                                         <a href="cart_TangSLSP.php?id_pr=<?=$row['id_product']?>"><button style="background-color: #fe4c50cf; width: 18px;">+</button></a>
+                                    </td>
                                   <td><?=$ThanhTien?></td>                    
                                   <td>
                                     <button onclick="xoa(<?=$row['id_product']?>)" style="width: 70px; background-color: #fe4c50cf;">Xóa</button>
