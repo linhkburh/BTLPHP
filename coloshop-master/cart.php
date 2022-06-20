@@ -229,8 +229,7 @@
                                     while($row = mysqli_fetch_assoc($rs)){
                                     $id_user = $row['id_user'];
                                      }
-                                    $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
-                                    product inner join cart on product.id_product = cart.id_product
+                                    $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM product inner join cart on product.id_product = cart.id_product
                                     where cart.id_user = $id_user and status = 1";
                                     $rs = mysqli_query($con,$sql);
                                     $count = 0;
