@@ -186,6 +186,7 @@
 									<a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
 									<ul class="account_selection" style="width: 250px;">
 										<li><a href="#"><?=$temp?></a></li><br>
+										<li><a href="DoiMK.php?email=<?=$temp?>" style="width: 100px">Đổi mật khẩu</a></li><br>
 										<li><a href="logout.php" style="width: 100px">Đăng Xuất</a></li>
 									</ul>
 								</li>

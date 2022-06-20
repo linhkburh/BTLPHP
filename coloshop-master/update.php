@@ -65,9 +65,76 @@
         $slug = "images/$name";
         // Thêm ảnh vào Database
         $sqlanh = "Update gallery SET id_product='$idsanpham',thumbnail='$slug' where id_gallery = '$idanh'";
-        
-        }
         mysqli_query($con, $sqlanh);
         header("Location: dataThumnail.php");
-}
+        }
+    }else if($action == "suamatkhau"){
+        include_once "ketnoi.php";
+        $email = $_POST['email'];
+        $matkhaucu = $_POST['matkhaucu'];
+        $matkhaumoi = $_POST['matkhaumoi'];
+        $xnmk = $_POST['xnmk'];
+        if($matkhaucu == "" || $matkhaumoi == "" || $xnmk == ""){
+            ?>
+                <script> alert("Phải nhập đầy đủ thông tin") </script>
+            <?php
+            require_once 'DoiMK.php';
+        }else{
+            $sql = "Select password from user where email = '$email'";
+            $rs = mysqli_query($con,$sql);
+            $r = mysqli_fetch_assoc($rs);
+            $temp = $r['password'];
+            if($temp != $matkhaucu){
+                ?>
+                    <script> alert("Mật khẩu cũ không đúng") </script>
+                <?php
+                require_once 'DoiMK.php';
+            }else if($xnmk != $matkhaumoi){
+                ?>
+                    <script> alert("Xác nhận lại mật khẩu") </script>
+                <?php
+                require_once 'DoiMK.php';
+            }else{
+                $date = date("Y-m-d H:i:s");
+                $sql2 = "Update user SET password = '$matkhaumoi', updated_at = '$date' where email = '$email'";
+                mysqli_query($con,$sql2);
+                ?>
+                    <script> alert("Thay đổi thành công") </script>
+                <?php
+                require_once 'index.php';
+            }
+        }
+    }if($action == "quenmatkhau"){
+        include_once "ketnoi.php";
+        $email = $_POST['email'];
+        $sdt = $_POST['sdt'];
+        if($email == "" || $sdt == ""){
+            ?>
+                <script> alert("Phải nhập đầy đủ thông tin") </script>
+            <?php
+            require_once 'quenmk.html';
+        }else{
+            $sql = "Select password from user where email = '$email' and phone_number = '$sdt'";
+            $rs = mysqli_query($con,$sql);
+            $r = mysqli_fetch_assoc($rs);
+            if($r == null){
+                ?>
+                    <script> alert("Thông tin sai") </script>
+                <?php
+                require_once 'quenmk.html';
+            }else{
+                $mkmoi = random_int(10000000,99999999);
+                $date = date("Y-m-d H:i:s");
+                $sql2 = "Update user SET password = '$mkmoi', updated_at = '$date' where email = '$email' and phone_number = '$sdt'";
+                mysqli_query($con,$sql2);
+                ?><p style="margin-left: 40%; margin-top: 3%; color: red">
+                <?php
+                echo"Mật khẩu mới của bạn là: $mkmoi";
+                ?></p>
+                <?php
+                require_once 'quenmk.html';
+            }
+        }
+    }
+    mysqli_close($con);
 ?>

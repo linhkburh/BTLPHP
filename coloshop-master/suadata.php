@@ -218,7 +218,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Page Title</h1>
+                    <h1 class="page-header"></h1>
                 </div>
             </div>
 
@@ -339,7 +339,7 @@
                                         </div>
                                         <div class="input-group input-group-lg mb-3">
                                             <span class="input-group-text">email</span>
-                                            <input type="text" class="form-control" id="email" name="email" value="<?=$r1['email']?>">
+                                            <input type="text" class="form-control" id="email" name="email" value="<?=$r1['email']?>" readonly>
                                         </div>
                                         <div class="input-group input-group-lg mb-3">
                                             <span class="input-group-text">SĐT</span>
@@ -348,10 +348,6 @@
                                         <div class="input-group input-group-lg mb-3">
                                             <span class="input-group-text">Địa chỉ</span>
                                             <input type="text" class="form-control" id="diachi" name="diachi" value="<?=$r1['address']?>">
-                                        </div>
-                                        <div class="input-group input-group-lg mb-3">
-                                            <span class="input-group-text">Mật khẩu mới</span>
-                                            <input type="password" class="form-control" id="matkhau" name="matkhau" >
                                         </div>
                                         <div class="input-group input-group-lg mb-3">
                                             <span class="input-group-text">Ngày tạo</span>
