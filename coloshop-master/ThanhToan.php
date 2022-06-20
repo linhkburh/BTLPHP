@@ -147,6 +147,35 @@
           include_once('ketnoi.php');
           $id_user = $_GET['id_user'];
           $toal_money = $_GET['total_money'];
+          $sql = "SELECT fullname,email, phone_number,address from user WHERE id_user = $id_user";
+          $rs = mysqli_query($con,$sql);
+          while($row = mysqli_fetch_assoc($rs)){
+           $fullname = $row['fullname'];
+           $email = $row['email'];
+           $phone_number = $row['phone_number'];
+           $address = $row['address'];
+          }
+          $date = date("Y-m-d H:i:s");
+          $sql = "INSERT INTO orders (id_user,fullname, email,phone_number,address,order_date,status) 
+          VALUES ('$id_user','$fullname','$email','$phone_number','$address','$date',0)";
+          mysqli_query($con,$sql);
+          $sql = "SELECT id_orders from orders WHERE id_user = $id_user and status = 0 ";
+          $rs = mysqli_query($con,$sql);
+          while($row = mysqli_fetch_assoc($rs)){  
+             $id_order = $row['id_orders'];
+          }
+          $sql = "SELECT id_product, price, num, total_money from cart WHERE id_user = $id_user and status = 1";
+          $rs = mysqli_query($con,$sql);
+          while($row = mysqli_fetch_assoc($rs)){ 
+            $id_product = $row['id_product'];
+            $price = $row['price'];
+            $num = $row['num'];
+            $total_money = $row['total_money'];
+            $sql2 = "INSERT INTO order_details (id_orders, id_user, id_product, price, num, total_money) VALUES ('$id_orders', '$id_user', '$id_product', '$price', '$num', '$total_money')";
+            mysqli_query($con,$sql2);
+          }
+          $sql = "UPDATE cart set status = 2 WHERE id_user = $id_user and status = 1";
+          mysqli_query($con,$sql);
           $sql = "SELECT product.id_product, thumbnail, title, cart.price, cart.num FROM 
           product inner join cart on product.id_product = cart.id_product
           where cart.id_user = $id_user and status = 1";
@@ -173,6 +202,8 @@
          ?>                    
   </table>
 </div> 
+<a href="#"><button style="max-width: 400px; margin-left: 300px;" class="btn btn-primary btn-lg btn-block" type="button">Hủy đơn hàng</button></a>
+<br>
 <div class="row">
 <div class="col-md-4 order-md-2 mb-4">
 <ul class="list-group mb-3">
