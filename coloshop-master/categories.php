@@ -356,7 +356,7 @@
 									<!-- Product  -->
 									<?php
 										include_once "ketnoi.php";
-										$sql = "Select * From product";
+										$sql = "Select * From product where num >= '1'";
 										$rs = mysqli_query($con,$sql);
 										while($row = mysqli_fetch_assoc($rs)){
 									?>

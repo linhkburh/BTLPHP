@@ -325,7 +325,7 @@
 									<?php
 										include_once "ketnoi.php";
 										$date = date("Y-m-d");
-										$sql1 = "Select * From product where id_category ='3' AND DateDiff('$date',created_at) < '7'";
+										$sql1 = "Select * From product where id_category ='3' AND DateDiff('$date',created_at) < '7' AND num >= '1'";
 										$rs1 = mysqli_query($con,$sql1);
 										while($row1 = mysqli_fetch_assoc($rs1)){
 									?>
@@ -339,7 +339,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php?id=<?=$row1['id_product']?>&key_single=<?=$temp?>"><?=$row1['title']?></a></h6>
-												<div class="product_price"><?=$row1['price']?><span><?=$row1['discount']?></span></div>
+												<div class="product_price"><?=$row1['discount']?><span><?=$row1['price']?></span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row1['id_product']?>')">Thêm vào giỏ hàng</a></div>
@@ -350,7 +350,7 @@
 									<!-- Product nu-->
 									<?php
 										include_once "ketnoi.php";
-										$sql2 = "Select * From product where id_category ='1' AND DateDiff('$date',created_at) < '7'";
+										$sql2 = "Select * From product where id_category ='1' AND DateDiff('$date',created_at) < '7' AND num >= '1'";
 										$rs2 = mysqli_query($con,$sql2);
 										while($row2 = mysqli_fetch_assoc($rs2)){
 									?>
@@ -363,7 +363,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php?id=<?=$row2['id_product']?>"><?=$row2['title']?></a></h6>
-												<div class="product_price"><?=$row2['price']?><span><?=$row2['discount']?></span></div>
+												<div class="product_price"><?=$row2['discount']?><span><?=$row2['price']?></span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row2['id_product']?>')">Thêm vào giỏ hàng</a></div>
@@ -374,7 +374,7 @@
 									<!-- Product phukien-->
 									<?php
 										include_once "ketnoi.php";
-										$sql3 = "Select * From product where id_category ='2' AND DateDiff('$date',created_at) < '7'";
+										$sql3 = "Select * From product where id_category ='2' AND DateDiff('$date',created_at) < '7' AND num >= '1'";
 										$rs3 = mysqli_query($con,$sql3);
 										while($row3 = mysqli_fetch_assoc($rs3)){
 									?>
@@ -387,7 +387,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php?id=<?=$row3['id_product']?>"><?=$row3['title']?></a></h6>
-												<div class="product_price"><?=$row3['price']?><span><?=$row3['discount']?></span></div>
+												<div class="product_price"><?=$row3['discount']?><span><?=$row3['price']?></span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row3['id_product']?>')">Thêm vào giỏ hàng</a></div>
@@ -398,7 +398,7 @@
 									<!-- Product ca2-->
 									<?php
 										include_once "ketnoi.php";
-										$sql4 = "Select * From product where id_category ='4' AND DateDiff('$date',created_at) < '7'";
+										$sql4 = "Select * From product where id_category ='4' AND DateDiff('$date',created_at) < '7' AND num >= '1'";
 										$rs4 = mysqli_query($con,$sql4);
 										while($row4 = mysqli_fetch_assoc($rs4)){
 									?>
@@ -411,7 +411,7 @@
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>New</span></div>
 											<div class="product_info">
 												<h6 class="product_name"><a href="single.php?id=<?=$row4['id_product']?>"><?=$row4['title']?></a></h6>
-												<div class="product_price"><?=$row4['price']?><span><?=$row4['discount']?></span></div>
+												<div class="product_price"><?=$row4['discount']?><span><?=$row4['price']?></span></div>
 											</div>
 										</div>
 										<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row4['id_product']?>')">Thêm vào giỏ hàng</a></div>
@@ -486,7 +486,7 @@
 							<!-- Slide 1 -->
 							<?php
 								include_once "ketnoi.php";
-								$sql = "Select * from product where num_sold >= '10'";
+								$sql = "Select * from product where num_sold >= '10' AND num >= '1'";
 								$rs = mysqli_query($con,$sql);
 								while($r = mysqli_fetch_assoc($rs)){
 							?>

@@ -24,6 +24,28 @@
     }
     </script>
 	<?php
+	if(isset($_GET['id']) && !isset($_POST['slcon']) && !isset($_POST['idsp'])){
+		$temp2 = $_GET['id'];
+		?>
+			<style>
+				.slcon {
+					display: none;
+				}
+			</style>
+		<?php
+	}else if(!isset($_GET['id']) && isset($_POST['slcon']) && isset($_POST['idsp'])){
+		$temp2 = $_POST['idsp'];
+		$slcon = $_POST['slcon'];
+		?>
+			<style>
+				.slcon {
+					display: block;
+					color: red;
+				}
+			</style>
+		<?php
+	}
+	
 	$giohang = "";
 	$Addgiohang = "";
 	if(isset($_COOKIE['email'])){
@@ -75,9 +97,6 @@
 ?>
 </head>
 <body>
-<?php
-			$temp = $_GET['key_single'];
-?>
 <div class="super_container">
 
 	<!-- Header -->
@@ -156,7 +175,7 @@
 								<li class="account1">
 									<a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
 									<ul class="account_selection" style="width: 250px;">
-										<li><a href="#"><?=$temp?></a></li><br>
+										<li><a href="#"><?=$_COOKIE['email']?></a></li><br>
 										<li><a href="logout.php" style="width: 100px">Đăng Xuất</a></li>
 									</ul>
 								</li>
@@ -240,8 +259,7 @@
 		</div>
 		<?php
 			include_once "ketnoi.php";
-			$idproduct = $_GET['id'];
-			$sql = "Select * from product where id_product = '$idproduct'";
+			$sql = "Select * from product where id_product = '$temp2'";
 			$rs = mysqli_query($con,$sql);
 			while($row = mysqli_fetch_assoc($rs)){
 		?>
@@ -301,6 +319,10 @@
 						</div>
 						<div class="red_button add_to_cart_button"><a href="#" onclick="add('<?=$row['id_product']?>')">Thêm vào giỏ hàng</a></div>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+					</div>
+					<div>
+						<br>
+						<p class="slcon">Số lượng trong kho chỉ còn: <?=$slcon?></p>
 					</div>
 				</div>
 			</div>
