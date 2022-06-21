@@ -280,7 +280,7 @@ HOTLINE:&nbsp; 0983.950.405</h5>
 </div>
 </div>
 <hr class="mb-4"> -->
-<button class="btn btn-primary btn-lg btn-block" onclick="thanhtoan(<?=$id_user?>,<?=$idorder?>,<?=$total_money?>)">Thanh Toán</button>
+<button style="max-width: 400px; margin-left: 315px;" class="btn btn-primary btn-lg btn-block" onclick="thanhtoan(<?=$id_user?>,<?=$idorder?>,<?=$total_money?>)">Thanh Toán</button>
 </form>
 </div>
 </div>

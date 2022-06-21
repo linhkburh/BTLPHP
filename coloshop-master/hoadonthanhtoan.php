@@ -182,6 +182,9 @@
 					while($row = mysqli_fetch_assoc($rs)){
 						$tongtien = $tongtien + $row['total_money'];
 						$id_product = $row['id_product'];
+						$num = $row['num'];
+						$sql2 = "UPDATE product set num = num-$num, num_sold = num_sold+$num where id_product = $id_product";
+						mysqli_query($con,$sql2);
 						$sql1 = "SELECT title from product where id_product = $id_product";
 						$rs1 = mysqli_query($con,$sql1);
 						$row1 = mysqli_fetch_assoc($rs1);
@@ -201,5 +204,12 @@
 				</tr>
 			</table>
 		</div>
+		<br>
+		<button onclick="vetrangchu()" style="width: 400px; height: 40px; margin-left: 515px; background-color: #FF6347; color: white; font-size: 20px ;">Trở về trang chủ</button>
 	</body>
 </html>
+<script type="text/javascript">
+	function vetrangchu(){
+		window.location = "index.php";
+	}
+</script>
