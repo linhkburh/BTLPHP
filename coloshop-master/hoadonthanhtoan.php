@@ -170,7 +170,7 @@
 				</tr>
 
 				<tr class="heading">
-					<td>Mặt hàng</td>
+					<td>Mặt hàng(Số lượng)</td>
 
 					<td>Thành tiền</td>
 				</tr>
