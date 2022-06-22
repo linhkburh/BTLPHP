@@ -242,13 +242,13 @@
                                     <tr>
                                         <th class="title">STT</th>
                                         <th class="title">ID_Ảnh</th>
-                                        <th class="title">ID_Sản phẩm</th>
+                                        <th class="title">Tên Sản phẩm</th>
                                         <th class="title">Ảnh</th>
                                         <th class="title">Chức năng</th>
                                     </tr>
                                     <?php
                                         include_once "ketnoi.php";
-                                        $sql = "SELECT * FROM gallery ";
+                                        $sql = "SELECT * FROM gallery INNER JOIN product ON gallery.id_product = product.id_product";
                                         $rs = mysqli_query($con,$sql);
                                         $count = 0;
                                         while($r = mysqli_fetch_assoc($rs)){
@@ -257,7 +257,7 @@
                                     <tr style="text-align: center;">	
                                         <td><?=$count?></td>
                                         <td><?=$r['id_gallery']?></td>
-                                        <td><?=$r['id_product']?></td>
+                                        <td><?=$r['title']?></td>
                                         <td><img src="<?=$r['thumbnail']?>" width="100" height="100"></td>
                                         <td>
                                             <a href="suadata.php?idanh=<?=$r['id_gallery']?>&action=suaanh""><button type="button">Sửa</button></a>

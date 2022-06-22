@@ -243,7 +243,7 @@
                                         <th class="title">Mật khẩu</th>
                                         <th class="title">Ngày tạo</th>
                                         <th class="title">Ngày chỉnh sửa</th>
-                                        <th class="title">Chức năng</th>
+                                        <!-- <th class="title">Chức năng</th> -->
                                     </tr>
                                     <?php
                                         include_once "ketnoi.php";
@@ -263,10 +263,10 @@
                                         <td><?=$r['password']?></td>                                   
                                         <td><?=$r['created_at']?></td>
                                         <td><?=$r['updated_at']?></td>
-                                        <td>
+                                        <!-- <td>
                                             <a href="suadata.php?idnguoidung=<?=$r['id_user']?>&action=suanguoidung"><button type="button">Sửa</button></a>
                                             <a href="#"><button type="button" onclick="xoa('<?=$r['id_user']?>')">Xóa</button></a>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                     <?php
                                         }
