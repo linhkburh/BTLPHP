@@ -33,7 +33,7 @@
 				}
 			</style>
 		<?php
-	}else if(!isset($_GET['id']) && isset($_POST['slcon']) && isset($_POST['idsp'])){
+	}else if(!isset($_GET['id'])&& isset($_POST['slcon']) && isset($_POST['idsp'])){
 		$temp2 = $_POST['idsp'];
 		$slcon = $_POST['slcon'];
 		?>
@@ -41,6 +41,15 @@
 				.slcon {
 					display: block;
 					color: red;
+				}
+			</style>
+		<?php
+	}else{
+		$temp2 = $_POST['idsp'];
+		?>
+			<style>
+				.slcon {
+					display: none;
 				}
 			</style>
 		<?php
@@ -415,8 +424,14 @@
 									<h4>Phản hồi (2)</h4>
 								</div>
 
-								<!-- User Review -->
 
+								<!-- User Review -->
+								<?php 
+									include_once "ketnoi.php";
+									$sql = "Select * from feedback inner join user ON feedback.email = user.email where id_product = '$temp2'";
+									$rs = mysqli_query($con,$sql);
+									while($r = mysqli_fetch_assoc($rs)){
+								?>
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"></div>
@@ -431,33 +446,14 @@
 										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Aug 2016</div>
-										<div class="user_name">Brandon William</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<div class="review_date"><?=$r['created_at']?></div>
+										<div class="user_name"><?=$r['email']?></div>
+										<p><?=$r['note']?></p>
 									</div>
 								</div>
-
-								<!-- User Review -->
-
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
-									</div>
-									<div class="review">
-										<div class="review_date">27 Aug 2016</div>
-										<div class="user_name">Brandon William</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
+								<?php
+									}
+								?>
 							</div>
 
 							<!-- Add Review -->
@@ -465,11 +461,12 @@
 							<div class="col-lg-6 add_review_col">
 
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form id="review_form" action="addfeedback.php" method="post">
 										<div>
 											<h1>Thêm phản hồi</h1>
-											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Tên*" required="required" data-error="Name is required.">
-											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+											<input id="tenfb" class="form_input input_name" type="text" name="tenfb" placeholder="Tên*" >
+											<input id="emailfb" class="form_input input_email" type="text" name="emailfb" placeholder="Email*">
+											<input type="hidden" id="idproduct" name="idproduct" value="<?=$temp2?>">
 										</div>
 										<div>
 											<h1>Đánh giá:</h1>
@@ -480,7 +477,7 @@
 												<li><i class="fa fa-star" aria-hidden="true"></i></li>
 												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 											</ul>
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Nhập phản hồi" rows="4" required data-error="Please, leave us a review."></textarea>
+											<textarea id="fb" class="input_review" name="fb"  placeholder="Nhập phản hồi" rows="4" required data-error="Please, leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">Phản hồi</button>

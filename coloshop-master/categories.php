@@ -245,7 +245,6 @@
 							<li><a href="#">Nữ giới</a></li>
 							<li><a href="#">Phụ kiện</a></li>
 							<li><a href="#">Hàng mới</a></li>
-							<li><a href="#">Bộ sưu tập</a></li>
 						</ul>
 					</div>
 
