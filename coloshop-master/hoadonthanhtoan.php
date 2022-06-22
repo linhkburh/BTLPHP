@@ -103,10 +103,7 @@
 	$id_order = $_GET['id_order'];
 	$total_money = $_GET['total_money'];
 	$id_user = $_GET['id_user'];
-	$sql = "UPDATE order_details set status = '2' WHERE id_user = $id_user and status = '1'";
-	mysqli_query($con,$sql);
-	$sql = "DELETE from cart where id_user = $id_user and status ='2'";
-	mysqli_query($con,$sql);
+	
 	$sql = "SELECT email, fullname,phone_number,address from user WHERE id_user = $id_user";
 	$rs = mysqli_query($con,$sql);
 	while($row = mysqli_fetch_assoc($rs)){
@@ -176,7 +173,7 @@
 				</tr>
 				<?php
 					include_once('ketnoi.php');
-					$sql = "SELECT id_product, num, total_money from order_details WHERE status = '2' and id_user = $id_user";
+					$sql = "SELECT id_product, num, total_money from order_details WHERE status = '1' and id_user = $id_user";
 					$rs = mysqli_query($con,$sql);
 					$tongtien = 0;
 					while($row = mysqli_fetch_assoc($rs)){
@@ -197,6 +194,10 @@
 					<?php	
 					}
 					$sql = "UPDATE orders set status = '1' , total_moneyFinal = $tongtien WHERE id_user = $id_user and status = '0'";
+					mysqli_query($con,$sql);
+					$sql = "UPDATE order_details set status = '2' WHERE id_user = $id_user and status = '1'";
+					mysqli_query($con,$sql);
+					$sql = "DELETE from cart where id_user = $id_user and status ='2'";
 					mysqli_query($con,$sql);
 					mysqli_close($con);
 				?>
