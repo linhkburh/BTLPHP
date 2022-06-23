@@ -66,7 +66,7 @@
         // Không phải file ảnh
         echo "File không cho phép";
         }
-        header("Loaction: dataThumnail.php");
+        header("Location: dataThumnail.php");
 }
     mysqli_close($con); 
 ?>
